@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Al Hasawi</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- vendor css files -->
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/js/vendor/animsition/css/animsition.min.css">
+
+    <!--Datepicker-->
+    <link href="https://unpkg.com/ngx-bootstrap/datepicker/bs-datepicker.css" rel="stylesheet">
+  <!--Datepicker-->
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- project main css files -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <!--/ stylesheets -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
+
+    <!-- material icon css files -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="assets/js/vendor/modernizr/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <!--/ modernizr -->
+
+</head>
+
+<body id="minovate" class="appWrapper">
+    <app-root></app-root>
+    <script src="../../ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- checked scripts-->
+    <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery/jquery-1.11.2.min.js"><\/script>')</script>
+    <script src="assets/js/vendor/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="assets/js/vendor/animsition/js/jquery.animsition.min.js"></script>
+    <script src="assets/js/vendor/jRespond/jRespond.min.js"></script>
+    <script src="assets/js/vendor/jquery-ui/jquery-ui.min.js"></script>
+    <!--Popup Js-->
+    <script src="assets/js/vendor/bootstrap/bootstrap.min.js"></script>
+    <!-- checked scripts-->
+    <!--/ vendor javascripts -->
+    <!--Wizard Js-->
+    <script src="assets/js/vendor/form-wizard/jquery.bootstrap.wizard.min.js"></script>
+ <!--Wizard Js-->
+    <script>
+
+        $(function () {
+            $('#datepicker').datepicker({
+                changeYear: true,
+                showButtonPanel: false,
+                yearRange: '1950:2020', // Optional Year Range
+                dateFormat: 'yy',
+                onClose: function (dateText, inst) {
+                    var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+                    $(this).datepicker('setDate', new Date(year, 0, 1));
+                }
+            });
+        });
+    </script>
+
+
+
+
+
+
+    <!--/ Page Specific Scripts -->
+    <script>
+        function openStudentDetails(evt,Details) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+          document.getElementById(Details).style.display = "block";
+          evt.currentTarget.className += " active";
+        }
+        
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+        </script>
+    <script>
+        $(function () {
+            $("#datepicker").datepicker();
+        });
+    </script>
+
+    <script src="assets/js/main.js"></script>
+    <!--/ custom javascripts -->
+
+
+
+    <!--/ Page Specific Scripts -->
+
+
+
+    <!--Placeholder style Script -->
+    <script>
+        function Change() {
+            if (($("#op1").val()) != null) {
+                $(".foundation").addClass("foundation");
+            } else {
+                $(".foundation").removeClass("foundation");
+            }
+        }
+    </script>
+    <script>
+        function clickfunction() {
+            $('#yearpicker').addClass("foundation");
+        }
+    </script>
+    <script>
+        function bloodgroupchange() {
+            if (($("#op1").val()) != null) {
+                $(".bgplaceholder").addClass("bgplaceholder");
+            } else {
+                $(".bgplaceholder").removeClass("bgplaceholder");
+            }
+        }
+    </script>
+    <script>
+        function clearBloodgroup() {
+            $('#bloodgroup').addClass("bgplaceholder");
+        }
+    </script>
+
+
+    <script>
+        function sectionchange() {
+            if (($("#op1").val()) != null) {
+                $(".sectionplaceholder").addClass("sectionplaceholder");
+            } else {
+                $(".sectionplaceholder").removeClass("sectionplaceholder");
+            }
+        }
+    </script>
+
+    <script>
+        function sectionchangeinschool() {
+            $('#section').addClass("sectionplaceholder");
+        }
+    </script>
+    <script>
+        function Gradechange() {
+            if (($("#op1").val()) != null) {
+                $(".gradePlaceholder").addClass("gradePlaceholder");
+            } else {
+                $(".gradePlaceholder").removeClass("gradePlaceholder");
+            }
+            $('#section').addClass("sectionplaceholder");
+        }
+    </script>
+    <script>
+        function clearsection() {
+            $('#section').removeClass("sectionplaceholder");
+
+        }
+    </script>
+    <script>
+        function clearsection() {
+            $('#section').removeClass("sectionplaceholder");
+
+        }
+    </script>
+    <script>
+
+        function clearsectionandannouncement() {
+            $('#Grade').addClass("gradePlaceholder");
+            $('#section').addClass("sectionplaceholder");
+            $('#announcementtype').addClass("announcementplaceholder");
+
+        }
+
+    </script>
+    <script>
+        function announcementchange() {
+            if (($("#op1").val()) != null) {
+                $(".announcementplaceholder").addClass("announcementplaceholder");
+            } else {
+                $(".announcementplaceholder").removeClass("announcementplaceholder");
+            }
+        }
+    </script>
+    <script>
+        function placeholderfromschool() {
+            $('#Grade').addClass("gradePlaceholder");
+            $('#section').addClass("sectionplaceholder");
+
+
+
+        }
+    </script>
+    <script>
+        function phonepattern() {
+            var phone = $('#phone').val().replace(/\D/g, '');
+            var myRegexp = /(\d{3})(\d{4})(\d*)/g
+            var mphone = myRegexp.exec(phone);
+            $('#phone').val('(' + mphone[1] + ')-' + mphone[2] + '-' + mphone[3]);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,300 @@
+<section id="content">
+    <div class="page page-forms-common">
+
+        <section class="tile">
+            <div class="tile-header dvd dvd-btm">
+                <h1 class="custom-font"><i class="fa fa-list editicon"></i>List of<strong> Players</strong></h1>
+                <button type="button" class="btn btn-drank newUserButton  btn-rounded mb-10 pull-right"
+                    data-toggle="modal" data-target="#CreateModal">
+                    <i class="fa fa-plus Addbutton" data-toggle="modal"
+                    data-target="#"></i>Add Category </button>
+
+            </div>
+            <br>
+            <div class="tile-body p-0">
+                <div class="table-responsive">
+                    <div class="mat-elevation-z8">
+                        <table class="table table-bordered" mat-table [dataSource]="dataSource" style="width:100%;">
+                            <!-- <ng-container matColumnDef="CategoryCode">
+                                <th mat-header-cell *matHeaderCellDef>Category COde</th>
+                                <td mat-cell *matCellDef="let data"> {{data.CategoryCode}} </td>
+                            </ng-container> -->
+                            <ng-container matColumnDef="CategoryName">
+                                <th mat-header-cell *matHeaderCellDef>Category Name </th>
+                                <td mat-cell *matCellDef="let data"> {{data.CategoryName}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="Depth">
+                                <th mat-header-cell *matHeaderCellDef> Depth </th>
+                                <td mat-cell *matCellDef="let data"> {{data.Depth}} </td>
+                            </ng-container>
+                            
+                            <!-- <ng-container matColumnDef="Slug">
+                              <th mat-header-cell *matHeaderCellDef>Slug </th>
+                              <td mat-cell *matCellDef="let data"> {{data.Slug}} </td>
+                          </ng-container> -->
+                            <ng-container matColumnDef="Status">
+                                <th mat-header-cell *matHeaderCellDef>Status </th>
+                                <td mat-cell *matCellDef="let data"> {{data.Status}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="Action">
+                                <th mat-header-cell *matHeaderCellDef> Action </th>
+                                <td mat-cell *matCellDef="let data">
+                                    <a class="myIcon icon-success icon-ef-3 icon-ef-3b icon-color" data-toggle="modal"
+                                        data-target="#UpdateModal" (click)="editdata(data)"><i
+                                            class="fa fa-edit"></i></a>
+                                    <a class="myIcon icon-warning icon-ef-4 icon-ef-4a icon-color"
+                                        (click)="viewdata(data,i)" data-toggle="modal" data-target="#myModalView"><i
+                                            class="fa fa-eye"></i></a>
+                                </td>
+                            </ng-container>
+
+
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="NodataStyle" id="NodataStyle">No Data found</div>
+                <mat-paginator id="Paginationhide" style="display:none;" [pageSizeOptions]="[5, 10, 20]"
+                    showFirstLastButtons></mat-paginator>
+
+
+            </div>
+        </section>
+    </div>
+</section>
+<!-- Add User  Data Modal -->
+<div  class="modal fade" data-keyboard="false" data-backdrop="static" id="CreateModal" role="dialog">
+
+    <form [formGroup]="playerForm" (ngSubmit)="createPlayer()">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="unstyled-button pull-right"
+                        (click)="closecreateModal()">&times;</button>
+                    <h4 class="modal-title"><i class="fa fa-edit editicon"></i><strong>Player </strong>Details</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-body">
+
+
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="Palyer Name">
+                                        Category Code
+                                        <span class="require">*</span>
+                                    </label>
+                                    <div class="col-md-8">
+                                        <div class="input-group">
+                                            <!-- <span class="input-group-addon">
+                                                <i class=" "></i>
+                                            </span> -->
+                                            <input type="text" class="form-control" [(ngModel)]="CategoryCode" name="PlayerName" placeholder="Player Name" [ngClass]="{ 'is-invalid': submitted && f.categoryCode.errors }" formControlName="categoryCode">
+                                        </div>
+                                        <div *ngIf="submitted && f.categoryCode.errors" class="invalid-feedback">
+                                            <div *ngIf="f.categoryCode.errors.required">categoryCode is Required</div>
+                                        </div>
+                                    </div>
+                                </div>
+                              <div class="form-group">
+                                <label class="col-md-4 control-label" for="Palyer Name">
+                                    Depth
+                                    <span class="require">*</span>
+                                </label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <!-- <span class="input-group-addon">
+                                            <i class=" "></i>
+                                        </span> -->
+                                        <input type="text" class="form-control" [(ngModel)]="Depth" name="PlayerName" placeholder="Player Name" [ngClass]="{ 'is-invalid': submitted && f.depth.errors }" formControlName="depth">
+                                    </div>
+                                    <div *ngIf="submitted && f.depth.errors" class="invalid-feedback">
+                                        <div *ngIf="f.depth.errors.required">depth is Required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-md-4 control-label" for="Palyer Name">
+                                  Category Name
+                                  <span class="require">*</span>
+                              </label>
+                              <div class="col-md-8">
+                                  <div class="input-group">
+                                      <!-- <span class="input-group-addon">
+                                          <i class=" "></i>
+                                      </span> -->
+                                      <input type="text" class="form-control" [(ngModel)]="CategoryName" name="PlayerName" placeholder="Player Name" [ngClass]="{ 'is-invalid': submitted && f.categoryName.errors }" formControlName="categoryName">
+                                  </div>
+                                  <div *ngIf="submitted && f.categoryName.errors" class="invalid-feedback">
+                                      <div *ngIf="f.categoryName.errors.required">categoryName is Required</div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 control-label" for="Palyer Name">
+                               Slug
+                                <span class="require">*</span>
+                            </label>
+                            <div class="col-md-8">
+                                <div class="input-group">
+                                    <!-- <span class="input-group-addon">
+                                        <i class=" "></i>
+                                    </span> -->
+                                    <input type="text" class="form-control" [(ngModel)]="Slug" name="PlayerName" placeholder="Player Name" [ngClass]="{ 'is-invalid': submitted && f.slug.errors }" formControlName="slug">
+                                </div>
+                                <div *ngIf="submitted && f.slug.errors" class="invalid-feedback">
+                                    <div *ngIf="f.slug.errors.required">slug is Required</div>
+                                </div>
+                            </div>
+                        </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="Status">
+                                        Status: <span class="require">*</span>
+                                    </label>
+                                    <div class="col-md-8">
+                                        <div class="input-group">
+
+                                            <mat-checkbox [(ngModel)]="Status" formControlName="status" name="Status"></mat-checkbox>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning pull-right modButAli"
+                        (click)="ClearCreateModal()">
+                        <i class="fa fa-edit"></i> Clear</button>
+                        <button type="button" class="btn btn-danger pull-right modButAli"
+                        (click)="CancelCreateModal()">
+                        <i class="fa fa-trash"></i> Cancel</button>
+                    <button type="submit" class="btn btn-success pull-right modButAli ">
+                        <i class="fa fa-save backIcon"></i>Save </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- Add User  Data Modal -->
+<div  class="modal fade" data-keyboard="false" data-backdrop="static" id="UpdateModal" role="dialog">
+
+  <form [formGroup]="updateForm" (ngSubmit)="updateCategory()">
+      <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="unstyled-button pull-right"
+                      (click)="closeUpdateModal()">&times;</button>
+                  <h4 class="modal-title"><i class="fa fa-edit editicon"></i><strong>Player </strong>Details</h4>
+              </div>
+              <div class="modal-body">
+                  <div class="row">
+                      <div class="col-md-12">
+                          <div class="form-body">
+
+
+                              <div class="form-group">
+                                  <label class="col-md-4 control-label" for="Palyer Name">
+                                      Category Code
+                                      <span class="require">*</span>
+                                  </label>
+                                  <div class="col-md-8">
+                                      <div class="input-group">
+                                          <!-- <span class="input-group-addon">
+                                              <i class=" "></i>
+                                          </span> -->
+                                          <input type="text" class="form-control" [(ngModel)]="CategoryCode" name="PlayerName" placeholder="Player Name" [ngClass]="{ 'is-invalid': submitted && f1.categoryCode.errors }" formControlName="categoryCode">
+                                      </div>
+                                      <div *ngIf="submitted && f1.categoryCode.errors" class="invalid-feedback">
+                                          <div *ngIf="f1.categoryCode.errors.required">categoryCode is Required</div>
+                                      </div>
+                                  </div>
+                              </div>
+                            <div class="form-group">
+                              <label class="col-md-4 control-label" for="Palyer Name">
+                                  Depth
+                                  <span class="require">*</span>
+                              </label>
+                              <div class="col-md-8">
+                                  <div class="input-group">
+                                      <!-- <span class="input-group-addon">
+                                          <i class=" "></i>
+                                      </span> -->
+                                      <input type="text" class="form-control" [(ngModel)]="Depth" name="PlayerName" placeholder="Player Name" [ngClass]="{ 'is-invalid': submitted && f1.depth.errors }" formControlName="depth">
+                                  </div>
+                                  <div *ngIf="submitted && f1.depth.errors" class="invalid-feedback">
+                                      <div *ngIf="f1.depth.errors.required">depth is Required</div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 control-label" for="Palyer Name">
+                                Category Name
+                                <span class="require">*</span>
+                            </label>
+                            <div class="col-md-8">
+                                <div class="input-group">
+                                    <!-- <span class="input-group-addon">
+                                        <i class=" "></i>
+                                    </span> -->
+                                    <input type="text" class="form-control" [(ngModel)]="CategoryName" name="PlayerName" placeholder="Player Name" [ngClass]="{ 'is-invalid': submitted && f1.categoryName.errors }" formControlName="categoryName">
+                                </div>
+                                <div *ngIf="submitted && f1.categoryName.errors" class="invalid-feedback">
+                                    <div *ngIf="f1.categoryName.errors.required">categoryName is Required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-4 control-label" for="Palyer Name">
+                             Slug
+                              <span class="require">*</span>
+                          </label>
+                          <div class="col-md-8">
+                              <div class="input-group">
+                                  <!-- <span class="input-group-addon">
+                                      <i class=" "></i>
+                                  </span> -->
+                                  <input type="text" class="form-control" [(ngModel)]="Slug" name="PlayerName" placeholder="Player Name" [ngClass]="{ 'is-invalid': submitted && f1.slug.errors }" formControlName="slug">
+                              </div>
+                              <div *ngIf="submitted && f1.slug.errors" class="invalid-feedback">
+                                  <div *ngIf="f1.slug.errors.required">slug is Required</div>
+                              </div>
+                          </div>
+                      </div>
+                              <div class="form-group">
+                                  <label class="col-md-4 control-label" for="Status">
+                                      Status: <span class="require">*</span>
+                                  </label>
+                                  <div class="col-md-8">
+                                      <div class="input-group">
+
+                                          <mat-checkbox [(ngModel)]="Status" formControlName="status" name="Status"></mat-checkbox>
+                                      </div>
+
+                                  </div>
+                              </div>
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-warning pull-right modButAli"
+                      (click)="ClearCreateModal()">
+                      <i class="fa fa-edit"></i> Clear</button>
+                      <button type="button" class="btn btn-danger pull-right modButAli"
+                      (click)="CancelCreateModal()">
+                      <i class="fa fa-trash"></i> Cancel</button>
+                  <button type="submit" class="btn btn-success pull-right modButAli ">
+                      <i class="fa fa-save backIcon"></i>Update </button>
+              </div>
+          </div>
+      </div>
+  </form>
+</div>

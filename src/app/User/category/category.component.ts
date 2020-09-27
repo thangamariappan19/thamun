@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
-  // CategoryCode: string;
+  ParentCategory: string;
   Depth: string;
   CategoryName: string;
   // Slug: string;
@@ -19,19 +19,32 @@ export class CategoryComponent implements OnInit {
   Editdata: any = [];
   buttontext = 'Save';
   i: any;
-
+  public  category = [
+    {
+      id:'1',
+      categoryName:'Mobile Phones'
+    },
+    {
+      id:'2',
+      categoryName:'Electronics'
+    },
+    {
+      id:'3',
+      categoryName:'Grooming'
+    }
+  ] 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
   ) {
-
+ 
   }
 
   ngOnInit() {
     this.playerForm = this.formBuilder.group({
-      // categoryCode: ['', Validators.required],
-      depth: [''],
-      categoryName: [''],
+      parentCategory: ['', Validators.required],
+      depth: ['', Validators.required],
+      categoryName: ['', Validators.required],
       // slug: [''],
       status: false,
   });
@@ -47,6 +60,7 @@ export class CategoryComponent implements OnInit {
       this.playerForm.reset();
     }
   }
+  
   get f() { return this.playerForm.controls; }
   saverecord() {
     this.submitted = true;
@@ -56,10 +70,10 @@ export class CategoryComponent implements OnInit {
     } else {
       if (this.buttontext === 'Save') {
         const data = {
-          // CategoryCode: this.CategoryCode,
+          ParentCategory: this.ParentCategory,
           Depth: this.Depth,
           CategoryName: this.CategoryName,
-          // Slug: this.Slug,
+          Slug: this.CategoryName.replace(/\s/g, "").toLowerCase(),
           Status: this.Status
         };
         this.Userdata.push(data);
@@ -74,13 +88,12 @@ export class CategoryComponent implements OnInit {
 
       } else {
         const data = {
-          // CategoryCode: this.CategoryCode,
+          ParentCategory: this.ParentCategory,
           Depth: this.Depth,
           CategoryName: this.CategoryName,
-          // Slug: this.Slug,
+           Slug: this.CategoryName.trim(),
           Status: this.Status
         };
-        debugger;
         if (this.CheckData != null) {
           this.CheckData.splice(this.i, 1);
           this.CheckData.push(data);
@@ -96,7 +109,7 @@ export class CategoryComponent implements OnInit {
   }
 
   Updatedata(Editdata) {
-    // this.CategoryCode = Editdata.CategoryCode;
+    this.ParentCategory = Editdata.ParentCategory;
    this.Depth = Editdata.Depth;
     this.CategoryName = Editdata.CategoryName;
     //  this.Slug = Editdata.Slug;

@@ -8,7 +8,27 @@
               <div class="row">
                   <div class="col-md-12">
                       <div class="form-body">
+                            <div class="form-group">
+                                    <label class="col-md-4 control-label" for="usr_name">
+                                    Category
+                                        <span class="require">*</span>
+                                    </label>
+                                    <div class="col-md-8">
+                                        <div class="input-group">
 
+                                            <select required [(ngModel)]="ParentCategory" formControlName="parentCategory" class="form-control"
+                                                [ngClass]="{ 'is-invalid': submitted && f.parentCategory.errors }" autocomplete="off">
+                                                <option value="undefined" disabled selected>Select category</option>
+                                                <option *ngFor="let data of category" value={{data.categoryName}}>
+                                                    {{data.categoryName}}</option>
+                                            </select>
+                                        </div>
+                                        <div *ngIf="submitted && f.parentCategory.errors" class="invalid-feedback">
+                                            <div *ngIf="f.parentCategory.errors.required"> Parent Category  is required</div>
+                                        </div>
+
+                                    </div>
+                                </div>
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="Palyer Name">
                                 Category Name
@@ -19,10 +39,10 @@
                                     <!-- <span class="input-group-addon">
                                         <i class=" "></i>
                                     </span> -->
-                                    <input type="text" class="form-control" [(ngModel)]="CategoryName" name="PlayerName" placeholder="Player Name" [ngClass]="{ 'is-invalid': submitted && f.categoryName.errors }" formControlName="categoryName">
+                                    <input type="text" class="form-control" [(ngModel)]="CategoryName" name="PlayerName" placeholder="Category Name" [ngClass]="{ 'is-invalid': submitted && f.categoryName.errors }" formControlName="categoryName">
                                 </div>
                                 <div *ngIf="submitted && f.categoryName.errors" class="invalid-feedback">
-                                    <div *ngIf="f.categoryName.errors.required">categoryName is Required</div>
+                                    <div *ngIf="f.categoryName.errors.required">CategoryName is Required</div>
                                 </div>
                             </div>
                         </div>
@@ -53,10 +73,10 @@
                                   <!-- <span class="input-group-addon">
                                       <i class=" "></i>
                                   </span> -->
-                                  <input type="text" class="form-control" [(ngModel)]="Depth" name="PlayerName" placeholder="Player Name" [ngClass]="{ 'is-invalid': submitted && f.depth.errors }" formControlName="depth">
+                                  <input type="text" class="form-control" [(ngModel)]="Depth" name="PlayerName" placeholder="Depth" [ngClass]="{ 'is-invalid': submitted && f.depth.errors }" formControlName="depth">
                               </div>
                               <div *ngIf="submitted && f.depth.errors" class="invalid-feedback">
-                                  <div *ngIf="f.depth.errors.required">depth is Required</div>
+                                  <div *ngIf="f.depth.errors.required">Depth is Required</div>
                               </div>
                           </div>
                       </div>
@@ -64,7 +84,7 @@
                    
                           <div class="form-group">
                               <label class="col-md-4 control-label" for="Status">
-                                  Status: <span class="require">*</span>
+                                  Status: 
                               </label>
                               <div class="col-md-8">
                                   <div class="input-group">

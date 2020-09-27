@@ -3,6 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { AddCategoryComponent } from './User/AddCategory.component';
 import { CategoryComponent } from './User/category/category.component';
 import { CategorylistComponent } from './User/categorylist/categorylist.component';
+import { CreateProductComponent } from './User/product/create-product/create-product.component';
+import { ProductListComponent } from './User/product/product-list/product-list.component';
+
 const routes: Routes = [
 
   {
@@ -22,9 +25,19 @@ const routes: Routes = [
   {
     path: 'categorylist',
     component: CategorylistComponent,
-    data: { title: 'AddCategory' }
+    data: { title: 'category-list' }
   },
-
+  {
+    path: 'product',
+    component: CreateProductComponent,
+    data: { title: 'product' }
+  },
+  {
+    path: 'product-list',
+    component: ProductListComponent,
+    data: { title: 'product-list' }
+  },
+  
 ];
 
 @NgModule({

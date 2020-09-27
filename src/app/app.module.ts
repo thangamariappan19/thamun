@@ -32,12 +32,16 @@ import {
 import { CategoryComponent } from './User/category/category.component';
 import { CategorylistComponent } from './User/categorylist/categorylist.component';
 import { UserServices } from './_Services/Userservices';
+import { CreateProductComponent } from './User/product/create-product/create-product.component';
+import { ProductListComponent } from './User/product/product-list/product-list.component';
 @NgModule({
   declarations: [
     AppComponent,
     AddCategoryComponent,
     CategoryComponent,
-    CategorylistComponent
+    CategorylistComponent,
+    CreateProductComponent,
+    ProductListComponent
   ],
   imports: [
     AutoCompleteModule,

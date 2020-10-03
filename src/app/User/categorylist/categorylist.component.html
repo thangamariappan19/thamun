@@ -32,7 +32,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                          <tr *ngFor="let data of Userdata;let i=index">
+                          <tr *ngFor="let data of CategoryData;let i=index">
                               <td>{{data.ParentCategory}}</td>
                               <td>{{data.CategoryName}}</td>
                               <td>{{data.Depth}}</td>
@@ -51,7 +51,7 @@
                     </table>
 
               </div>
-              <div *ngIf="!Userdata.length" class="NodataStyle" id="NodataStyle">No Data found</div>
+              <div *ngIf="!CategoryData.length" class="NodataStyle" id="NodataStyle">No Data found</div>
           </div>
       </section>
   </div>

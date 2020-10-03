@@ -7,27 +7,27 @@ import { Router } from '@angular/router';
 })
 export class CategorylistComponent implements OnInit {
   color = 'green';
-  Userdata: any = [];
+  CategoryData: any = [];
 
   constructor(
     private router: Router
   ) { }
 
   ngOnInit() {
-    this.Userdata = JSON.parse(localStorage.getItem('Userdata'));
+    this.CategoryData = JSON.parse(localStorage.getItem('CategoryData'));
   }
   
-editdata(data, i) {
-  localStorage.setItem('Editdata', JSON.stringify(data));
+EditCategoryData(data, i) {
+  localStorage.setItem('EditCategoryData', JSON.stringify(data));
   localStorage.setItem('i', JSON.stringify(i));
   this.router.navigate(['/category']);
 }
 Delete(i) {
-  this.Userdata.splice(i, 1);
-  localStorage.setItem('Userdata', JSON.stringify(this.Userdata));
+  this.CategoryData.splice(i, 1);
+  localStorage.setItem('CategoryData', JSON.stringify(this.CategoryData));
 }
 backnav() {
-  localStorage.removeItem('Editdata');
+  localStorage.removeItem('EditCategoryData');
   this.router.navigate(['/category']);
 }
 }

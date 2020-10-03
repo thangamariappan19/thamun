@@ -146,7 +146,7 @@ export class CreateProductComponent implements OnInit {
       allowSearchFilter: true
     };
     this.setStatus();
-    this.category=JSON.parse(localStorage.getItem('Userdata'));
+    this.category = JSON.parse(localStorage.getItem('CategoryData'));
     console.log(this.category)
     this.playerForm = this.formBuilder.group({
       productID: ['',],
@@ -302,7 +302,7 @@ Document64(file: File) {
   reader.onload = (e: any) => {
 
     const imagePreview:any = reader.result;
-    this.Imageupload = imagePreview.replace("data:" + file.type + ";base64,", "");
+    this.Imageupload = imagePreview.replace('data:' + file.type + ";base64,", "");
 
     console.log(this.Imageupload)
   };

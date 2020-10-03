@@ -25,7 +25,7 @@ editdata(data, i) {
 }
 Delete(i) {
   this.ProductListData.splice(i, 1);
-  localStorage.setItem('Userdata', JSON.stringify(this.ProductListData));
+  localStorage.setItem('ProductListData', JSON.stringify(this.ProductListData));
 }
 backnav() {
   localStorage.removeItem('EditProductdata');

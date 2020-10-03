@@ -14,9 +14,9 @@ export class CategoryComponent implements OnInit {
   Status: Boolean;
   playerForm: FormGroup;
   submitted = false;
-  Userdata: any = [];
+  CategoryData: any = [];
   CheckData: any = [];
-  Editdata: any = [];
+  EditCategoryData: any = [];
   buttontext = 'Save';
   i: any;
   public  category = [
@@ -49,12 +49,12 @@ export class CategoryComponent implements OnInit {
       status: false,
   });
   this.playerForm.reset();
-    this.Editdata = JSON.parse(localStorage.getItem('Editdata'));
+    this.EditCategoryData = JSON.parse(localStorage.getItem('EditCategoryData'));
     this.i = localStorage.getItem('i');
-    this.CheckData = JSON.parse(localStorage.getItem('Userdata'));
-    if (this.Editdata != null) {
+    this.CheckData = JSON.parse(localStorage.getItem('CategoryData'));
+    if (this.EditCategoryData != null) {
       this.buttontext = 'Update';
-      this.Updatedata(this.Editdata);
+      this.Updatedata(this.EditCategoryData);
     } else {
       this.buttontext = 'Save';
       this.playerForm.reset();
@@ -76,13 +76,13 @@ export class CategoryComponent implements OnInit {
           Slug: this.CategoryName.replace(/\s/g, "").toLowerCase(),
           Status: this.Status
         };
-        this.Userdata.push(data);
+        this.CategoryData.push(data);
         if (this.CheckData != null) {
           this.CheckData.push(data);
-          localStorage.setItem('Userdata', JSON.stringify(this.CheckData));
+          localStorage.setItem('CategoryData', JSON.stringify(this.CheckData));
           this.router.navigate(['/categorylist']);
         } else {
-          localStorage.setItem('Userdata', JSON.stringify(this.Userdata));
+          localStorage.setItem('CategoryData', JSON.stringify(this.CategoryData));
           this.router.navigate(['/categorylist']);
         }
 
@@ -97,10 +97,10 @@ export class CategoryComponent implements OnInit {
         if (this.CheckData != null) {
           this.CheckData.splice(this.i, 1);
           this.CheckData.push(data);
-          localStorage.setItem('Userdata', JSON.stringify(this.CheckData));
+          localStorage.setItem('CategoryData', JSON.stringify(this.CheckData));
           this.router.navigate(['/categorylist']);
         } else {
-          localStorage.setItem('Userdata', JSON.stringify(this.Userdata));
+          localStorage.setItem('CategoryData', JSON.stringify(this.CategoryData));
           this.router.navigate(['/categorylist']);
         }
       }
@@ -108,12 +108,12 @@ export class CategoryComponent implements OnInit {
     }
   }
 
-  Updatedata(Editdata) {
-    this.ParentCategory = Editdata.ParentCategory;
-   this.Depth = Editdata.Depth;
-    this.CategoryName = Editdata.CategoryName;
-    //  this.Slug = Editdata.Slug;
-    this.Status = Editdata.Status;
+  Updatedata(EditCategoryData) {
+    this.ParentCategory = EditCategoryData.ParentCategory;
+   this.Depth = EditCategoryData.Depth;
+    this.CategoryName = EditCategoryData.CategoryName;
+    //  this.Slug = EditCategoryData.Slug;
+    this.Status = EditCategoryData.Status;
     this.i = this.i;
   }
   backnavlist() {

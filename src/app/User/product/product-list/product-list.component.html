@@ -12,29 +12,46 @@
             <br>
             <div class="tile-body p-0">
                 <div class="table-responsive">
-  
-                        <table class="table table-bordered" style="width:100%;">
+                    <table id="dt-cell-sellection" class="table" cellspacing="0" width="100%">
+                        <thead>
                           <tr>
-                            <th>ID</th> 
-                            <th>Name</th>
-                            <th>Category</th>
-                            <th>Price</th>
-                            <th>Status</th>
-                            <th>Actions</th>
+                            <th class="th-sm">ID
+                            </th>
+                            <th class="th-sm">Name
+                            </th>
+                            <th class="th-sm">Category
+                            </th>
+                            <th class="th-sm">Price
+                            </th>
+                            <th class="th-sm">Created Date
+                              </th>
+                            <th class="th-sm">Status
+                            </th>
+                            <th class="th-sm">Action
+                              </th>
+                         
                           </tr>
-                          <tr *ngFor="let data of ProductListData;let i=index">
-                            <td>{{data.ProductID}}</td>
-                            <td>{{data.ProductName}}</td>
-                            <td>{{data.Category}}</td>
-                            <td>{{data.Price}}</td>
-                            <td>{{data.Status}}</td>
-                            <td>    <a class="myIcon icon-success icon-ef-3 icon-ef-3b icon-color"
-                            (click)="editdata(data,i)"><i
-                                  class="fa fa-edit"></i></a>
-                          <a class="myIcon icon-warning icon-ef-4 icon-ef-4a icon-color"
-                              (click)="Delete(i)"><i
-                                  class="fa fa-eye"></i></a></td>
-                        </table>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of ProductListData;let i=index">
+                                <td>{{data.ProductID}}</td>
+                                <td>{{data.ProductName}}</td>
+                                <td>{{data.Category}}</td>
+                                <td>{{data.Color}}</td>
+                                <td>{{data.CreatedDate | date:'mediumDate'}}</td>
+                                <td>{{data.Status}}</td>
+                                <td>    <a class="myIcon icon-success icon-ef-3 icon-ef-3b icon-color"
+                                (click)="editdata(data,i)"><i
+                                      class="fa fa-edit"></i></a>
+                              <a class="myIcon icon-warning icon-ef-4 icon-ef-4a icon-color"
+                                  (click)="Delete(i)"><i
+                                      class="fa fa-eye"></i></a></td>
+                          </tr>
+                       
+                        </tbody>
+                      
+                      </table>
+                    
   
                 </div>
                 <div *ngIf="!ProductListData.length" class="NodataStyle" id="NodataStyle">No Data found</div>

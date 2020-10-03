@@ -1,195 +1,402 @@
-
 <section id="content">
-    <div class="page page-forms-common">
-  
-  <h3>Product Form</h3>
-  <form [formGroup]="playerForm" (ngSubmit)="saverecord()">
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-body">
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="Palyer Name">
-                                   ID
-                                    <span class="require">*</span>
-                                </label>
-                                <div class="col-md-8">
-                                    <div class="input-group">
-                                        <!-- <span class="input-group-addon">
+  <div class="page page-forms-common">
+    <h3>Product Form</h3>
+    <form [formGroup]="playerForm" (ngSubmit)="saverecord()">
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-body">
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="Palyer Name">
+                  ID
+                  <span class="require">*</span>
+                </label>
+                <div class="col-md-8">
+                  <div class="input-group">
+                    <!-- <span class="input-group-addon">
                                             <i class=" "></i>
                                         </span> -->
-                                        <input type="text" class="form-control" [(ngModel)]="ProductID" name="PlayerName" placeholder="ProductID"  formControlName="productID">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="Palyer Name">
-                                    Product Name
-                                    <span class="require">*</span>
-                                </label>
-                                <div class="col-md-8">
-                                    <div class="input-group">
-                                        <!-- <span class="input-group-addon">
-                                            <i class=" "></i>
-                                        </span> -->
-                                        <input type="text" class="form-control" [(ngModel)]="ProductName" name="ProductName" placeholder="Product Name" [ngClass]="{ 'is-invalid': submitted && f.productName.errors }" formControlName="productName">
-                                    </div>
-                                    <div *ngIf="submitted && f.productName.errors" class="invalid-feedback">
-                                        <div *ngIf="f.productName.errors.required">ProductName is Required</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="email" class="control-label col-lg-4">Description
-                                    <span class="require">*</span>
-                                </label>
-                                <div class="col-lg-8">
-                                    <div class="input-group">
-                          
-                                        <textarea formControlName="description" maxlength="150"
-                
-                                            [(ngModel)]="Description" class="form-control"
-                                            placeholder="Enter the description" rows="3"
-                                            [ngClass]="{ 'is-invalid': submitted && f.description.errors }"
-                                            autocomplete="off"></textarea>
-                                    </div>
-                                    <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
-                                        <div *ngIf="f.description.errors.required"> Address is required</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="email" class="control-label col-lg-4">Short Description
-                                    <span class="require">*</span>
-                                </label>
-                                <div class="col-lg-8">
-                                    <div class="input-group">
-                                      
-                                        <textarea formControlName="shortDescription" maxlength="150"
-                                            
-                                            [(ngModel)]="ShortDescription" class="form-control"
-                                            placeholder="Enter the shortDescription" rows="3"
-                                            [ngClass]="{ 'is-invalid': submitted && f.shortDescription.errors }"
-                                            autocomplete="off"></textarea>
-                                    </div>
-                                    <div *ngIf="submitted && f.shortDescription.errors" class="invalid-feedback">
-                                        <div *ngIf="f.shortDescription.errors.required"> shortDescription is required</div>
-                    
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="usr_name">
-                                Category
-                                    <span class="require">*</span>
-                                </label>
-                                <div class="col-md-8">
-                                    <div class="input-group">
-
-                                        <select required [(ngModel)]="Category" formControlName="category" class="form-control"
-                                            [ngClass]="{ 'is-invalid': submitted && f.category.errors }" autocomplete="off">
-                                            <option value="undefined" disabled selected>Select category</option>
-                                            <option *ngFor="let data of category" value={{data.CategoryName}}>
-                                                {{data.CategoryName}}</option>
-                                        </select>
-                                    </div>
-                                    <div *ngIf="submitted && f.category.errors" class="invalid-feedback">
-                                        <div *ngIf="f.category.errors.required">Category  is required</div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="Palyer Name">
-                                  Price
-                                    <span class="require">*</span>
-                                </label>
-                                <div class="col-md-8">
-                                    <div class="input-group">
-                                        <!-- <span class="input-group-addon">
-                                            <i class=" "></i>
-                                        </span> -->
-                                        <input type="text" class="form-control" [(ngModel)]="Price" name="price" placeholder="price" [ngClass]="{ 'is-invalid': submitted && f.price.errors }" formControlName="price">
-                                    </div>
-                                    <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
-                                        <div *ngIf="f.price.errors.required">price is Required</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="Palyer Name">
-                                  Discount
-                                    <span class="require">*</span>
-                                </label>
-                                <div class="col-md-8">
-                                    <div class="input-group">
-                                        <!-- <span class="input-group-addon">
-                                            <i class=" "></i>
-                                        </span> -->
-                                        <input type="text" class="form-control" [(ngModel)]="Discount" name="Discount" placeholder="Discount" [ngClass]="{ 'is-invalid': submitted && f.discount.errors }" formControlName="discount">
-                                    </div>
-                                    <div *ngIf="submitted && f.discount.errors" class="invalid-feedback">
-                                        <div *ngIf="f.discount.errors.required">discount is Required</div>
-                                    </div>
-                                </div>
-                            </div>
-                      
-                              <div class="form-group">
-                                      <label class="col-md-4 control-label" for="usr_name">
-                                      Unit
-                                          <span class="require">*</span>
-                                      </label>
-                                      <div class="col-md-8">
-                                          <div class="input-group">
-  
-                                              <select required [(ngModel)]="Unit" formControlName="unit" class="form-control"
-                                                  [ngClass]="{ 'is-invalid': submitted && f.unit.errors }" autocomplete="off">
-                                                  <option value="undefined" disabled selected>Select unit</option>
-                                                  <option *ngFor="let data of unit" value={{data.unitName}}>
-                                                      {{data.unitName}}</option>
-                                              </select>
-                                          </div>
-                                          <div *ngIf="submitted && f.unit.errors" class="invalid-feedback">
-                                              <div *ngIf="f.unit.errors.required"> unit  is required</div>
-                                          </div>
-  
-                                      </div>
-                                  </div>
-                                  <div class="form-group">
-                                      <label class="col-md-4 control-label" for="usr_name">
-                                      Status
-                                          <span class="require">*</span>
-                                      </label>
-                                      <div class="col-md-8">
-                                          <div class="input-group">
-  
-                                              <select required [(ngModel)]="Status" formControlName="status" class="form-control"
-                                                  [ngClass]="{ 'is-invalid': submitted && f.status.errors }" autocomplete="off">
-                                                  <option value="undefined" disabled selected>Select category</option>
-                                                  <option *ngFor="let data of status" value={{data.status}}>
-                                                      {{data.status}}</option>
-                                              </select>
-                                          </div>
-                                          <div *ngIf="submitted && f.status.errors" class="invalid-feedback">
-                                              <div *ngIf="f.status.errors.required"> status  is required</div>
-                                          </div>
-  
-                                      </div>
-                                  </div>
-                        </div>
-                    </div>
+                    <input
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="ProductID"
+                      name="PlayerName"
+                      placeholder="ProductID"
+                      formControlName="productID"
+                    />
+                  </div>
                 </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="Palyer Name">
+                  Product Name
+                  <span class="require">*</span>
+                </label>
+                <div class="col-md-8">
+                  <div class="input-group">
+                    <!-- <span class="input-group-addon">
+                                            <i class=" "></i>
+                                        </span> -->
+                    <input
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="ProductName"
+                      name="ProductName"
+                      placeholder="Product Name"
+                      [ngClass]="{
+                        'is-invalid': submitted && f.productName.errors
+                      }"
+                      formControlName="productName"
+                    />
+                  </div>
+                  <div
+                    *ngIf="submitted && f.productName.errors"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="f.productName.errors.required">
+                      ProductName is Required
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email" class="control-label col-lg-4"
+                  >Description
+                  <span class="require">*</span>
+                </label>
+                <div class="col-lg-8">
+                  <div class="input-group">
+                    <textarea
+                      formControlName="description"
+                      maxlength="150"
+                      [(ngModel)]="Description"
+                      class="form-control"
+                      placeholder="Enter the description"
+                      rows="3"
+                      [ngClass]="{
+                        'is-invalid': submitted && f.description.errors
+                      }"
+                      autocomplete="off"
+                    ></textarea>
+                  </div>
+                  <div
+                    *ngIf="submitted && f.description.errors"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="f.description.errors.required">
+                      Address is required
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email" class="control-label col-lg-4"
+                  >Short Description
+                  <span class="require">*</span>
+                </label>
+                <div class="col-lg-8">
+                  <div class="input-group">
+                    <textarea
+                      formControlName="shortDescription"
+                      maxlength="150"
+                      [(ngModel)]="ShortDescription"
+                      class="form-control"
+                      placeholder="Enter the shortDescription"
+                      rows="3"
+                      [ngClass]="{
+                        'is-invalid': submitted && f.shortDescription.errors
+                      }"
+                      autocomplete="off"
+                    ></textarea>
+                  </div>
+                  <div
+                    *ngIf="submitted && f.shortDescription.errors"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="f.shortDescription.errors.required">
+                      shortDescription is required
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="usr_name">
+                  Category
+                  <span class="require">*</span>
+                </label>
+
+                <div class="col-md-8">
+                  <div class="input-group">
+                    <ng-multiselect-dropdown
+                      [placeholder]="'Select category'"
+                      formControlName="category"
+                      [data]="category"
+                      [(ngModel)]="Category"
+                      [settings]="dropdownSettings"
+                      (onSelect)="onItemSelect($event)"
+                      (onSelectAll)="onSelectAll($event)"
+                      [required]="requiredField"
+                      [ngClass]="setClass()"
+                      name="countrySelect"
+                    >
+                    </ng-multiselect-dropdown>
+                  </div>
+                  <div
+                    *ngIf="submitted && f.category.errors"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="f.category.errors.required">
+                      Category is required
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="Palyer Name">
+                  Price
+                  <span class="require">*</span>
+                </label>
+                <div class="col-md-8">
+                  <div class="input-group">
+                    <!-- <span class="input-group-addon">
+                                            <i class=" "></i>
+                                        </span> -->
+                    <input
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="Price"
+                      name="price"
+                      placeholder="price"
+                      [ngClass]="{ 'is-invalid': submitted && f.price.errors }"
+                      formControlName="price"
+                    />
+                  </div>
+                  <div
+                    *ngIf="submitted && f.price.errors"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="f.price.errors.required">price is Required</div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="Palyer Name">
+                  Discount
+                  <span class="require">*</span>
+                </label>
+                <div class="col-md-8">
+                  <div class="input-group">
+                    <!-- <span class="input-group-addon">
+                                            <i class=" "></i>
+                                        </span> -->
+                    <input
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="Discount"
+                      name="Discount"
+                      placeholder="Discount"
+                      [ngClass]="{
+                        'is-invalid': submitted && f.discount.errors
+                      }"
+                      formControlName="discount"
+                    />
+                  </div>
+                  <div
+                    *ngIf="submitted && f.discount.errors"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="f.discount.errors.required">
+                      discount is Required
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="usr_name">
+                  Unit
+                  <span class="require">*</span>
+                </label>
+                <div class="col-md-8">
+                  <div class="input-group">
+                    <select
+                      required
+                      [(ngModel)]="Unit"
+                      formControlName="unit"
+                      class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && f.unit.errors }"
+                      autocomplete="off"
+                    >
+                      <option value="undefined" disabled selected
+                        >Select unit</option
+                      >
+                      <option
+                        *ngFor="let data of unit"
+                        value="{{ data.unitName }}"
+                      >
+                        {{ data.unitName }}</option
+                      >
+                    </select>
+                  </div>
+                  <div
+                    *ngIf="submitted && f.unit.errors"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="f.unit.errors.required">unit is required</div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="usr_name">
+                  Select Size
+                  <span class="require">*</span>
+                </label>
+                <div class="col-md-8">
+                  <div class="input-group">
+                    <span *ngFor="let item of list">
+                      <input
+                        type="checkbox"
+                        formControlName="size"
+                        [(ngModel)]="item.checked"
+                      />{{ item.title }}
+                    </span>
+                  </div>
+                  <div
+                    *ngIf="submitted && f.unit.errors"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="f.unit.errors.required">Size is required</div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="usr_name">
+                  Select Color
+                 
+                </label>
+                <div class="col-md-8">
+                  <div class="input-group">
+                    <ng-multiselect-dropdown
+                      [placeholder]="'Select color'"
+                      formControlName="color"
+                      [data]="ColorData"
+                      [(ngModel)]="Color"
+                      [settings]="dropdownColor"
+                      (onSelect)="onItemSelect($event)"
+                      (onSelectAll)="onSelectAll($event)"
+                      [required]="requiredField"
+                      [ngClass]="setClass()"
+                      name="countrySelect"
+                    >
+                    </ng-multiselect-dropdown>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="usr_name">
+                  Status
+                  <span class="require">*</span>
+                </label>
+                <div class="col-md-8">
+                  <div class="input-group">
+                    <select
+                      required
+                      [(ngModel)]="Status"
+                      formControlName="status"
+                      class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && f.status.errors }"
+                      autocomplete="off"
+                    >
+                      <option value="undefined" disabled selected
+                        >Select status</option
+                      >
+                      <option
+                        *ngFor="let data of status"
+                        value="{{ data.status }}"
+                      >
+                        {{ data.status }}</option
+                      >
+                    </select>
+                  </div>
+                  <div
+                    *ngIf="submitted && f.status.errors"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="f.status.errors.required">
+                      status is required
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="usr_name">
+                  Select Image
+                </label>
+                <div class="col-md-8">
+                  <div class="input-group">
+                    <div
+                      class="fileupload fileupload-new"
+                      data-provides="fileupload"
+                    >
+                      <div
+                        class="fileupload-new thumbnail"
+                        style="width: 142px;height: 113px;"
+                        id="previewimg"
+                      >
+                        <img
+                          src="{{ UserImage }}"
+                          id="myfile"
+                          alt="image"
+                          style="background: #79838e;border-radius: 99px;border-radius: 69px"
+                        />
+                      </div>
+                      <div
+                        class="fileupload-preview fileupload-exists thumbnail"
+                        id="imagePreview"
+                        style="width: 150px;height: 139px;line-height: 20px; border-radius: 69px;display: none"
+                      ></div>
+                      <div>
+                        <button
+                          type="file"
+                          accept=".png, .jpg, .jpeg"
+                          (change)="onFileChange($event)"
+                          class="btn btn-custom btn-file upload-button"
+                          id="selectbtn"
+                        >
+                          <!-- <span class="fileupload-new">
+                            <i class="fa fa-paper-clip"></i> Upload Image</span
+                          >
+                          <span class="fileupload-exists" id="changeid">
+                            <i class="fa fa-undo"></i> Change</span
+                          > -->
+                          <input
+                            type="file"
+                            class="btn-light file-upload"
+                            id="changeid"
+                          />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="modal-footer">
-                    <button type="button" class="btn btn-danger pull-right modButAli"
-                    (click)="backnavlist()">
-                    <i class="fa fa-trash"></i> Cancel</button>
-                <button type="submit" class="btn btn-success pull-right modButAli ">
-                    <i class="fa fa-save backIcon"></i>Save </button>
-            </div>
-  </form>
-  
-  
-    </div>
-    </section>
-  
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-danger pull-right modButAli"
+          (click)="backnavlist()"
+        >
+          <i class="fa fa-trash"></i> Cancel
+        </button>
+        <button type="submit" class="btn btn-success pull-right modButAli ">
+          <i class="fa fa-save backIcon"></i>Save
+        </button>
+      </div>
+    </form>
+  </div>
+</section>

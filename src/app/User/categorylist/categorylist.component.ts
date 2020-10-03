@@ -16,6 +16,7 @@ export class CategorylistComponent implements OnInit {
   ngOnInit() {
     this.Userdata = JSON.parse(localStorage.getItem('Userdata'));
   }
+  
 editdata(data, i) {
   localStorage.setItem('Editdata', JSON.stringify(data));
   localStorage.setItem('i', JSON.stringify(i));

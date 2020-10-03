@@ -1,13 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,HostBinding} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
+import { ColorEvent } from 'ngx-color';
+import { Ng2ImgMaxService } from 'ng2-img-max';
+declare var jquery: any;
+declare var $: any;
 
+var google: any;
 @Component({
   selector: 'app-create-product',
   templateUrl: './create-product.component.html',
-  styleUrls: ['./create-product.component.css']
+  styleUrls: ['./create-product.component.scss']
 })
 export class CreateProductComponent implements OnInit {
+  Imageupload: any
   ProductID:string;
   ProductName: string;
   Description: string;
@@ -24,9 +31,53 @@ export class CreateProductComponent implements OnInit {
   Editdata: any = [];
   buttontext = 'Save';
   category;any;
+  Imagefile:any;
+  Color:any;
   i: any;
-  
- 
+  dropdownList = [];
+  selectedItems = [];
+  dropdownSettings = {};
+  dropdownColor = {};
+  requiredField: boolean = false;
+
+  public list = [
+    {
+      id: 1,
+      title: 'XXL',
+    },
+    {
+      id: 2,
+      title: 'M',
+    },
+    {
+      id: 3,
+      title: 'L',
+
+    },
+    {
+      id: 4,
+      title: 'XL',
+    },
+  ]
+  public ColorData = [
+    {
+      id: 1,
+      title: 'red',
+    },
+    {
+      id: 2,
+      title: 'green',
+    },
+    {
+      id: 3,
+      title: 'yeelow',
+
+    },
+    {
+      id: 4,
+      title: 'orange',
+    },
+  ]
   public  unit = [
     {
       id:'1',
@@ -59,14 +110,37 @@ export class CreateProductComponent implements OnInit {
       status:'banned'
     }
   ] 
+  public UserImage:any;
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
+    private sanitizer: DomSanitizer,
+    private ng2ImgMax: Ng2ImgMaxService,
   ) {
  
   }
 
   ngOnInit() {
+    this.UserImage = '/assets/images/dummy.png'
+    this.dropdownSettings = {
+      singleSelection: false,
+      idField: 'id',
+      textField: 'CategoryName',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      itemsShowLimit: 3,
+      allowSearchFilter: true
+    };
+    this.dropdownColor = {
+      singleSelection: false,
+      idField: 'id',
+      textField: 'title',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      itemsShowLimit: 3,
+      allowSearchFilter: true
+    };
+    this.setStatus();
     this.category=JSON.parse(localStorage.getItem('Userdata'));
     console.log(this.category)
     this.playerForm = this.formBuilder.group({
@@ -79,6 +153,9 @@ export class CreateProductComponent implements OnInit {
       discount: ['', Validators.required],
       unit: ['', Validators.required],
       status: ['', Validators.required],
+      color:[''],
+      size:['', Validators.required],
+      file: [null]
   });
   this.playerForm.reset();
     this.Editdata = JSON.parse(localStorage.getItem('EditProductdata'));
@@ -110,8 +187,11 @@ export class CreateProductComponent implements OnInit {
           Price: this.Price,
           Discount: this.Discount,
           Unit: this.Unit,
-          Status: this.Status
+          Color:this.Color,
+          Status: this.Status,
+          CreatedDate: new Date()
         };
+        console.log(data)
         this.ProductListData.push(data);
         if (this.productData != null) {
           this.productData.push(data);
@@ -132,8 +212,11 @@ export class CreateProductComponent implements OnInit {
           Price: this.Price,
           Discount: this.Discount,
           Unit: this.Unit,
-          Status: this.Status
+          Status: this.Status,
+          Color: this.Color,
+          CreatedDate:this.Editdata.CreatedDate
         };
+        console.log(data)
         if (this.productData != null) {
           this.productData.splice(this.i, 1);
           this.productData.push(data);
@@ -170,4 +253,111 @@ export class CreateProductComponent implements OnInit {
             return true;
       }
 }
+
+setStatus() {
+  (this.selectedItems.length > 0) ? this.requiredField = true : this.requiredField = false;
+}
+
+onItemSelect(item: any) {
+  //Do something if required
+  this.setClass();
+}
+onSelectAll(items: any) {
+  console.log(items)
+  //Do something if required
+  this.setClass();
+}
+
+setClass() {
+  this.setStatus();
+  if (this.selectedItems.length > 0) { return 'validField' }
+  else { return 'invalidField' }
+}
+DocumentFile(event) {
+  const fileSize = event.target.files;
+  const image1 = event.target.files;
+  let reader = new FileReader();
+  this.ng2ImgMax.compress([event.target.files[0]], 0.3).subscribe(
+    result => {
+      this.Document64(result);
+    })
+}
+Document64(file: File) {
+  const reader: FileReader = new FileReader();
+  reader.readAsDataURL(file);
+  reader.onload = (e: any) => {
+
+    const imagePreview:any = reader.result;
+    this.Imageupload = imagePreview.replace("data:" + file.type + ";base64,", "");
+
+    console.log(this.Imageupload)
+  };
+}
+getImagePreview(file: File) {
+  const reader: FileReader = new FileReader();
+  reader.readAsDataURL(file);
+  reader.onload = (e: any) => {
+
+    const imagePreview:any = reader.result;
+    this.Imagefile = imagePreview.replace("data:" + file.type + ";base64,", "");
+
+    console.log(this.Imagefile)
+  };
+}
+onFileChange(fileInput: any) {
+
+  var fileSize = fileInput.target.files[0].size;
+  if (fileSize < "2000000") {
+
+    let image1 = fileInput.target.files[0];
+    let ext;
+    if (image1 != undefined) {
+      if (image1.type == 'image/jpeg') {
+        ext = "jpeg";
+      } else if (image1.type == 'image/jpeg') {
+        ext = "png";
+      }
+      if (image1.type == "image/jpeg" || image1.type == "image/jpeg" || image1.type == "image/png") {
+        let reader = new FileReader();
+        this.ng2ImgMax.compress([fileInput.target.files[0]], 0.3).subscribe(
+          result => {
+            debugger;
+            $('#removeid').css({ "display": "block" });
+            // $('#changeid').css({ "display": "block" });   
+            $('#imagePreview').css({ "display": "block" });
+            $('#previewimg').css({ "display": "none" });
+            this.getImagePreview(result);
+          },
+          error => {
+            console.log('ðŸ˜¢ Oh no!', error);
+          }
+        );
+      }
+      else {
+
+       // this.alertService.error('Only jpg/jpeg and png files are allowed!', true);
+        $('.alert').css({ "display": "block" });
+        setTimeout(function () { $('.alert').css({ "display": "none" }); }, 3000);
+        $('#removeid').css({ "display": "none" });
+        // $('#changeid').css({ "display": "none" });   
+        $('#imagePreview').css({ "display": "none" });
+        $('#previewimg').css({ "display": "block" });
+        $('#selectbtn').css({ "display": "block" });
+        return false;
+
+      }
+
+    }
+    else {
+      //Error Img NULL
+    }
+  }
+  else {
+ //   this.alertService.error('Please upload a smaller image, max size is 2 MB', true);
+    $('.alert').css({ "disgplay": "block" });
+    setTimeout(function () { $('.alert').css({ "display": "none" }); }, 3000);
+  }
+}
+
+
 }

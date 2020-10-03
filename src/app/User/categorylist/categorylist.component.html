@@ -11,30 +11,44 @@
           </div>
           <br>
           <div class="tile-body p-0">
+            
               <div class="table-responsive">
-
-                      <table class="table table-bordered" style="width:100%;">
+                  <table id="dt-cell-sellection" class="table" cellspacing="0" width="100%">
+                      <thead>
                         <tr>
-                          <th>Category</th> 
-                          <th>Category Name</th>
-                          <th>Depth</th>
-                          <th>Slug</th>
-                          <th>Status</th>
-                          <th>Delete</th>
+                          <th class="th-sm">Category
+                          </th>
+                          <th class="th-sm">Category Name
+                          </th>
+                          <th class="th-sm">Depth
+                          </th>
+                          <th class="th-sm">Slug
+                          </th>
+                          <th class="th-sm">Status
+                          </th>
+                          <th class="th-sm">Action
+                            </th>
+                       
                         </tr>
-                        <tr *ngFor="let data of Userdata;let i=index">
-                          <td>{{data.ParentCategory}}</td>
-                          <td>{{data.CategoryName}}</td>
-                          <td>{{data.Depth}}</td>
-                          <td>{{data.Slug}}</td>
-                          <td>{{data.Status}}</td>
-                          <td>    <a class="myIcon icon-success icon-ef-3 icon-ef-3b icon-color"
-                          (click)="editdata(data,i)"><i
-                                class="fa fa-edit"></i></a>
-                        <a class="myIcon icon-warning icon-ef-4 icon-ef-4a icon-color"
-                            (click)="Delete(i)"><i
-                                class="fa fa-eye"></i></a></td>
-                      </table>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let data of Userdata;let i=index">
+                              <td>{{data.ParentCategory}}</td>
+                              <td>{{data.CategoryName}}</td>
+                              <td>{{data.Depth}}</td>
+                              <td>{{data.Slug}}</td>
+                              <td>{{data.Status}}</td>
+                              <td>    <a class="myIcon icon-success icon-ef-3 icon-ef-3b icon-color"
+                              (click)="editdata(data,i)"><i
+                                    class="fa fa-edit"></i></a>
+                            <a class="myIcon icon-warning icon-ef-4 icon-ef-4a icon-color"
+                                (click)="Delete(i)"><i
+                                    class="fa fa-eye"></i></a></td>
+                        </tr>
+                     
+                      </tbody>
+                    
+                    </table>
 
               </div>
               <div *ngIf="!Userdata.length" class="NodataStyle" id="NodataStyle">No Data found</div>

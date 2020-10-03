@@ -16,7 +16,7 @@
                                     <div class="col-md-8">
                                         <div class="input-group">
 
-                                            <select required [(ngModel)]="ParentCategory" formControlName="parentCategory" class="form-control"
+                                            <select required [(ngModel)]="ParentCategory" formControlName="parentCategory" class="form-control paddingSize"
                                                 [ngClass]="{ 'is-invalid': submitted && f.parentCategory.errors }" autocomplete="off">
                                                 <option value="undefined" disabled selected>Select category</option>
                                                 <option *ngFor="let data of category" value={{data.categoryName}}>

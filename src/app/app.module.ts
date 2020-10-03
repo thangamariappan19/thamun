@@ -34,6 +34,9 @@ import { CategorylistComponent } from './User/categorylist/categorylist.componen
 import { UserServices } from './_Services/Userservices';
 import { CreateProductComponent } from './User/product/create-product/create-product.component';
 import { ProductListComponent } from './User/product/product-list/product-list.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { ColorSketchModule } from 'ngx-color/sketch';
+import { HttpClientModule } from '@angular/common/http'
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +47,9 @@ import { ProductListComponent } from './User/product/product-list/product-list.c
     ProductListComponent
   ],
   imports: [
+    ColorSketchModule,
+    HttpClientModule,
+    NgMultiSelectDropDownModule,
     AutoCompleteModule,
     BrowserModule,
     Ng2ImgMaxModule,

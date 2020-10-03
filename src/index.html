@@ -69,25 +69,7 @@
 
 
 
-    <!--/ Page Specific Scripts -->
-    <script>
-        function openStudentDetails(evt,Details) {
-          var i, tabcontent, tablinks;
-          tabcontent = document.getElementsByClassName("tabcontent");
-          for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-          }
-          tablinks = document.getElementsByClassName("tablinks");
-          for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-          }
-          document.getElementById(Details).style.display = "block";
-          evt.currentTarget.className += " active";
-        }
-        
-        // Get the element with id="defaultOpen" and click on it
-        document.getElementById("defaultOpen").click();
-        </script>
+    
     <script>
         $(function () {
             $("#datepicker").datepicker();
@@ -118,96 +100,7 @@
             $('#yearpicker').addClass("foundation");
         }
     </script>
-    <script>
-        function bloodgroupchange() {
-            if (($("#op1").val()) != null) {
-                $(".bgplaceholder").addClass("bgplaceholder");
-            } else {
-                $(".bgplaceholder").removeClass("bgplaceholder");
-            }
-        }
-    </script>
-    <script>
-        function clearBloodgroup() {
-            $('#bloodgroup').addClass("bgplaceholder");
-        }
-    </script>
-
-
-    <script>
-        function sectionchange() {
-            if (($("#op1").val()) != null) {
-                $(".sectionplaceholder").addClass("sectionplaceholder");
-            } else {
-                $(".sectionplaceholder").removeClass("sectionplaceholder");
-            }
-        }
-        
-    </script>
-
-    <script>
-        function sectionchangeinschool() {
-            $('#section').addClass("sectionplaceholder");
-        }
-    </script>
-    <script>
-        function Gradechange() {
-            if (($("#op1").val()) != null) {
-                $(".gradePlaceholder").addClass("gradePlaceholder");
-            } else {
-                $(".gradePlaceholder").removeClass("gradePlaceholder");
-            }
-            $('#section').addClass("sectionplaceholder");
-        }
-    </script>
-    <script>
-        function clearsection() {
-            $('#section').removeClass("sectionplaceholder");
-
-        }
-    </script>
-    <script>
-        function clearsection() {
-            $('#section').removeClass("sectionplaceholder");
-
-        }
-    </script>
-    <script>
-
-        function clearsectionandannouncement() {
-            $('#Grade').addClass("gradePlaceholder");
-            $('#section').addClass("sectionplaceholder");
-            $('#announcementtype').addClass("announcementplaceholder");
-
-        }
-
-    </script>
-    <script>
-        function announcementchange() {
-            if (($("#op1").val()) != null) {
-                $(".announcementplaceholder").addClass("announcementplaceholder");
-            } else {
-                $(".announcementplaceholder").removeClass("announcementplaceholder");
-            }
-        }
-    </script>
-    <script>
-        function placeholderfromschool() {
-            $('#Grade').addClass("gradePlaceholder");
-            $('#section').addClass("sectionplaceholder");
-
-
-
-        }
-    </script>
-    <script>
-        function phonepattern() {
-            var phone = $('#phone').val().replace(/\D/g, '');
-            var myRegexp = /(\d{3})(\d{4})(\d*)/g
-            var mphone = myRegexp.exec(phone);
-            $('#phone').val('(' + mphone[1] + ')-' + mphone[2] + '-' + mphone[3]);
-        }
-    </script>
+  
 </body>
 
 </html>

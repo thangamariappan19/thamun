@@ -23,8 +23,19 @@
                       name="PlayerName"
                       placeholder="ProductID"
                       formControlName="productID"
+                      [ngClass]="{
+                        'is-invalid': submitted && f.productID.errors
+                      }"
                     />
                   </div>
+                  <div
+                  *ngIf="submitted && f.productID.errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f.productID.errors.required">
+                        productID is Required
+                  </div>
+                </div>
                 </div>
               </div>
               <div class="form-group">
@@ -253,19 +264,10 @@
                 </label>
                 <div class="col-md-8">
                   <div class="input-group">
-                    <span *ngFor="let item of list">
-                      <input
-                        type="checkbox"
-                        formControlName="size"
-                        [(ngModel)]="item.checked"
-                      />{{ item.title }}
-                    </span>
-                  </div>
-                  <div
-                    *ngIf="submitted && f.unit.errors"
-                    class="invalid-feedback"
-                  >
-                    <div *ngIf="f.unit.errors.required">Size is required</div>
+                        <span *ngFor="let d of list">
+                                <input type="checkbox" [checked]="d.checked" formControlName="size" (change)="d.checked = !d.checked">  {{ d.title }}
+                              </span>
+                  
                   </div>
                 </div>
               </div>
@@ -341,11 +343,11 @@
                     >
                       <div
                         class="fileupload-new thumbnail"
-                        style="width: 142px;height: 113px;"
+                        style="width: 106px;height: 113px;"
                         id="previewimg"
                       >
-                        <img
-                          src="{{ UserImage }}"
+                        <img  
+                          src="{{ ProductImage }}"
                           id="myfile"
                           alt="image"
                           style="background: #79838e;border-radius: 99px;border-radius: 69px"

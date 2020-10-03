@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { ColorEvent } from 'ngx-color';
 import { Ng2ImgMaxService } from 'ng2-img-max';
+import { isNgTemplate } from '@angular/compiler';
 declare var jquery: any;
 declare var $: any;
 
@@ -14,12 +15,15 @@ var google: any;
   styleUrls: ['./create-product.component.scss']
 })
 export class CreateProductComponent implements OnInit {
+  imagePreview:any;
   Imageupload: any
   ProductID:string;
   ProductName: string;
   Description: string;
   ShortDescription: string;
-  Category: string;
+  Category: any[];
+  ImageFile:any;
+  ProductImage:any;
   Price:string;
      Discount: string;
   Unit:string;
@@ -30,7 +34,7 @@ export class CreateProductComponent implements OnInit {
   productData: any = [];
   Editdata: any = [];
   buttontext = 'Save';
-  category;any;
+  category:any;
   Imagefile:any;
   Color:any;
   i: any;
@@ -111,6 +115,7 @@ export class CreateProductComponent implements OnInit {
     }
   ] 
   public UserImage:any;
+  public item:any;
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -121,7 +126,7 @@ export class CreateProductComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.UserImage = '/assets/images/dummy.png'
+    this.ProductImage = '/assets/images/dummy.png'
     this.dropdownSettings = {
       singleSelection: false,
       idField: 'id',
@@ -154,8 +159,7 @@ export class CreateProductComponent implements OnInit {
       unit: ['', Validators.required],
       status: ['', Validators.required],
       color:[''],
-      size:['', Validators.required],
-      file: [null]
+      size:[''],
   });
   this.playerForm.reset();
     this.Editdata = JSON.parse(localStorage.getItem('EditProductdata'));
@@ -178,6 +182,7 @@ export class CreateProductComponent implements OnInit {
       return;
     } else {
       if (this.buttontext === 'Save') {
+        
         const data = {
           ProductID: this.ProductID,
           ProductName: this.ProductName,
@@ -189,7 +194,10 @@ export class CreateProductComponent implements OnInit {
           Unit: this.Unit,
           Color:this.Color,
           Status: this.Status,
-          CreatedDate: new Date()
+          ImageFile:this.ImageFile,
+          CreatedDate: new Date(),
+          ProductImage:this.ProductImage,
+
         };
         console.log(data)
         this.ProductListData.push(data);
@@ -214,7 +222,8 @@ export class CreateProductComponent implements OnInit {
           Unit: this.Unit,
           Status: this.Status,
           Color: this.Color,
-          CreatedDate:this.Editdata.CreatedDate
+          CreatedDate: this.Editdata.CreatedDate,
+          ProductImage: this.ProductImage,
         };
         console.log(data)
         if (this.productData != null) {
@@ -237,10 +246,15 @@ export class CreateProductComponent implements OnInit {
          this.Description=Editdata.Description,
          this. ShortDescription=Editdata.ShortDescription,
          this.Category=Editdata.Category,
-         this.Price=Editdata.Price,
-         this. Discount=Editdata.Discount,
+         this.Price = Editdata.Price,
+         this. Discount= Editdata.Discount,
          this. Unit=Editdata.Unit,
-         this. Status=Editdata.Status
+         this. Status=Editdata.Status,
+         this.Color= Editdata.Color,
+         this.ProductImage = Editdata.ProductImage,
+        
+      //   this.item.checked=Editdata.Size,
+         
     this.i = this.i;
   }
   backnavlist() {
@@ -297,16 +311,16 @@ getImagePreview(file: File) {
   const reader: FileReader = new FileReader();
   reader.readAsDataURL(file);
   reader.onload = (e: any) => {
-
-    const imagePreview:any = reader.result;
-    this.Imagefile = imagePreview.replace("data:" + file.type + ";base64,", "");
+debugger;
+    this.ProductImage= reader.result;
+    this.Imagefile = this.ProductImage.replace("data:" + file.type + ";base64,", "");
 
     console.log(this.Imagefile)
   };
 }
 onFileChange(fileInput: any) {
 
-  var fileSize = fileInput.target.files[0].size;
+  const fileSize = fileInput.target.files[0].size;
   if (fileSize < "2000000") {
 
     let image1 = fileInput.target.files[0];
@@ -322,10 +336,10 @@ onFileChange(fileInput: any) {
         this.ng2ImgMax.compress([fileInput.target.files[0]], 0.3).subscribe(
           result => {
             debugger;
-            $('#removeid').css({ "display": "block" });
+       //     $('#removeid').css({ "display": "block" });
             // $('#changeid').css({ "display": "block" });   
-            $('#imagePreview').css({ "display": "block" });
-            $('#previewimg').css({ "display": "none" });
+            //$('#imagePreview').css({ "display": "block" });
+          //  $('#previewimg').css({ "display": "none" });
             this.getImagePreview(result);
           },
           error => {
@@ -336,13 +350,13 @@ onFileChange(fileInput: any) {
       else {
 
        // this.alertService.error('Only jpg/jpeg and png files are allowed!', true);
-        $('.alert').css({ "display": "block" });
-        setTimeout(function () { $('.alert').css({ "display": "none" }); }, 3000);
-        $('#removeid').css({ "display": "none" });
-        // $('#changeid').css({ "display": "none" });   
-        $('#imagePreview').css({ "display": "none" });
-        $('#previewimg').css({ "display": "block" });
-        $('#selectbtn').css({ "display": "block" });
+        // $('.alert').css({ "display": "block" });
+        // setTimeout(function () { $('.alert').css({ "display": "none" }); }, 3000);
+        // $('#removeid').css({ "display": "none" });
+        // // $('#changeid').css({ "display": "none" });   
+        // $('#imagePreview').css({ "display": "none" });
+        // $('#previewimg').css({ "display": "block" });
+        // $('#selectbtn').css({ "display": "block" });
         return false;
 
       }

@@ -263,12 +263,19 @@
                   <span class="require">*</span>
                 </label>
                 <div class="col-md-8">
-                  <div class="input-group">
-                        <span *ngFor="let d of list">
-                                <input type="checkbox" [checked]="d.checked" formControlName="size" (change)="d.checked = !d.checked">  {{ d.title }}
-                              </span>
-                  
+                
+                        <div class="flex-container flex-wrap">
+                        <div class="element">
+                                <div class="flex-container">
+                                  <div *ngFor="let hobby of playerForm.controls.hobbies.controls; let i=index;"
+                                    class="flex-container  align-center multi-checkbox">
+                                    <input type="checkbox" [formControl]="hobby" (change)="getSelectedHobbies(hobby, myhobbies[i].name);">
+                                    {{myhobbies[i].name}}
+                                  </div>
+                                </div>
+                              </div>
                   </div>
+                  
                 </div>
               </div>
               <div class="form-group">

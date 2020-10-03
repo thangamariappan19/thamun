@@ -16,7 +16,7 @@ export class CategoryComponent implements OnInit {
   submitted = false;
   CategoryData: any = [];
   CheckData: any = [];
-  EditCategoryData: any = [];
+  Editdata: any = [];
   buttontext = 'Save';
   i: any;
   public  category = [
@@ -49,12 +49,12 @@ export class CategoryComponent implements OnInit {
       status: false,
   });
   this.playerForm.reset();
-    this.EditCategoryData = JSON.parse(localStorage.getItem('EditCategoryData'));
+    this.Editdata = JSON.parse(localStorage.getItem('Editdata'));
     this.i = localStorage.getItem('i');
     this.CheckData = JSON.parse(localStorage.getItem('CategoryData'));
-    if (this.EditCategoryData != null) {
+    if (this.Editdata != null) {
       this.buttontext = 'Update';
-      this.Updatedata(this.EditCategoryData);
+      this.Updatedata(this.Editdata);
     } else {
       this.buttontext = 'Save';
       this.playerForm.reset();
@@ -108,12 +108,12 @@ export class CategoryComponent implements OnInit {
     }
   }
 
-  Updatedata(EditCategoryData) {
-    this.ParentCategory = EditCategoryData.ParentCategory;
-   this.Depth = EditCategoryData.Depth;
-    this.CategoryName = EditCategoryData.CategoryName;
-    //  this.Slug = EditCategoryData.Slug;
-    this.Status = EditCategoryData.Status;
+  Updatedata(Editdata) {
+    this.ParentCategory = Editdata.ParentCategory;
+   this.Depth = Editdata.Depth;
+    this.CategoryName = Editdata.CategoryName;
+    //  this.Slug = Editdata.Slug;
+    this.Status = Editdata.Status;
     this.i = this.i;
   }
   backnavlist() {

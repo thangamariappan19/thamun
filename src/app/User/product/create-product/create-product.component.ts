@@ -1,10 +1,11 @@
 import { Component, OnInit ,HostBinding} from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl, FormArray } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { ColorEvent } from 'ngx-color';
 import { Ng2ImgMaxService } from 'ng2-img-max';
 import { isNgTemplate } from '@angular/compiler';
+import * as _ from "lodash";
 declare var jquery: any;
 declare var $: any;
 
@@ -43,11 +44,35 @@ export class CreateProductComponent implements OnInit {
   dropdownSettings = {};
   dropdownColor = {};
   requiredField: boolean = false;
+  selectedHobbiesNames:any[];
+
+  myhobbies: any = [
+    {
+      name: "XXL",
+      value: "XXL"
+    },
+    {
+      name: "XL",
+      value: "XL",
+    },
+    {
+      name: "L",
+      value: "L",
+    },
+    {
+      name: "M",
+      value: "M",
+    },
+    {
+      name: "S",
+      value: "S"
+    },
+  ];
 
   public list = [
     {
       id: 1,
-      title: 'XXL',
+      title: '',
     },
     {
       id: 2,
@@ -159,7 +184,7 @@ export class CreateProductComponent implements OnInit {
       unit: ['', Validators.required],
       status: ['', Validators.required],
       color:[''],
-      size:[''],
+      hobbies: this.createHobbies(this.myhobbies)
   });
   this.playerForm.reset();
     this.Editdata = JSON.parse(localStorage.getItem('EditProductdata'));
@@ -172,6 +197,32 @@ export class CreateProductComponent implements OnInit {
       this.buttontext = 'Save';
       this.playerForm.reset();
     }
+  }
+  createHobbies(hobbiesInputs) {
+    const arr = hobbiesInputs.map(hobby => {
+      return new FormControl(hobby.selected || false);
+    });
+    return new FormArray(arr);
+  }
+  getSelectedHobbies() {
+    this.selectedHobbiesNames = _.map(
+      this.playerForm.controls.hobbies["controls"],
+      (hobby, i) => {
+        return hobby.value && this.myhobbies[i].value;
+      }
+    );
+    this.getSelectedHobbiesName();
+  }
+
+  getSelectedHobbiesName() {
+    this.selectedHobbiesNames = _.filter(
+      this.selectedHobbiesNames,
+      function(hobby) {
+        if (hobby !== false) {
+          return hobby;
+        }
+      }
+    );
   }
   
   get f() { return this.playerForm.controls; }
@@ -197,6 +248,7 @@ export class CreateProductComponent implements OnInit {
           ImageFile:this.ImageFile,
           CreatedDate: new Date(),
           ProductImage:this.ProductImage,
+          SIze:this.playerForm.get('hobbies').value,
 
         };
         console.log(data)
@@ -224,6 +276,7 @@ export class CreateProductComponent implements OnInit {
           Color: this.Color,
           CreatedDate: this.Editdata.CreatedDate,
           ProductImage: this.ProductImage,
+          SIze:this.playerForm.get('hobbies').value,
         };
         console.log(data)
         if (this.productData != null) {
@@ -252,6 +305,7 @@ export class CreateProductComponent implements OnInit {
          this. Status=Editdata.Status,
          this.Color= Editdata.Color,
          this.ProductImage = Editdata.ProductImage,
+         this.playerForm.patchValue({hobbies: Editdata.SIze });
         
       //   this.item.checked=Editdata.Size,
          

@@ -1,42 +1,30 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatStepperModule, MatFormField, MatInputModule, MatIconModule, MatFormFieldModule, MAT_DIALOG_DATA, } from '@angular/material';
-import { MatDialogModule } from '@angular/material/dialog';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { ErrorStateMatcher, MatAutocompleteModule, MatBadgeModule, MatBottomSheetModule, MatButtonModule, MatButtonToggleModule, MatCheckboxModule, MatChipsModule, MatDatepickerModule, MatDividerModule, MatExpansionModule, MatFormFieldModule, MatGridListModule, MatIconModule, MatInputModule, MatListModule, MatMenuModule, MatNativeDateModule, MatPaginatorModule, MatProgressBarModule, MatProgressSpinnerModule, MatRadioModule, MatRippleModule, MatSelectModule, MatSidenavModule, MatSliderModule, MatSlideToggleModule, MatSnackBarModule, MatSortModule, MatStepperModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatTreeModule, MAT_DIALOG_DATA, ShowOnDirtyErrorStateMatcher } from '@angular/material';
 import { MatCardModule } from '@angular/material/';
-import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material';
-import { AddCategoryComponent } from './User/AddCategory.component';
-import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-import { TagInputModule } from 'ngx-chips';
-import { Http, HttpModule } from '@angular/http';
-import { MasterServices } from './_Services/masterservice';
-import { TransactionServices } from './_Services/transactionservice';
-import { AppConfig } from './_AppConfig/appconfig';
+import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { Ng2ImgMaxModule } from 'ng2-img-max';
 import { AutoCompleteModule } from 'ng4-auto-complete';
-import { DragDropModule } from '@angular/cdk/drag-drop';
-import { NgxPasswordToggleModule } from 'ngx-password-toggle';
-import {
-  MatAutocompleteModule, MatBadgeModule, MatBottomSheetModule, MatButtonToggleModule,
-  MatCheckboxModule, MatChipsModule, MatDatepickerModule,
-  MatDividerModule, MatExpansionModule, MatGridListModule, MatListModule, MatMenuModule,
-  MatNativeDateModule, MatPaginatorModule, MatProgressBarModule, MatProgressSpinnerModule,
-  MatRadioModule, MatRippleModule, MatSelectModule, MatSidenavModule, MatSliderModule,
-  MatSlideToggleModule, MatSnackBarModule, MatSortModule, MatTableModule, MatTabsModule,
-  MatToolbarModule, MatTooltipModule, MatTreeModule,
-} from '@angular/material';
-import { CategoryComponent } from './User/category/category.component';
-import { CategorylistComponent } from './User/categorylist/categorylist.component';
-import { UserServices } from './_Services/Userservices';
-import { CreateProductComponent } from './User/product/create-product/create-product.component';
-import { ProductListComponent } from './User/product/product-list/product-list.component';
-import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { TagInputModule } from 'ngx-chips';
 import { ColorSketchModule } from 'ngx-color/sketch';
-import { HttpClientModule } from '@angular/common/http'
+import { NgxPasswordToggleModule } from 'ngx-password-toggle';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { AddCategoryComponent } from './components/AddCategory.component';
+import { CategoryComponent } from './components/category/category.component';
+import { CategorylistComponent } from './components/categorylist/categorylist.component';
+import { CreateProductComponent } from './components/product/create-product/create-product.component';
+import { ProductListComponent } from './components/product/product-list/product-list.component';
+import { AppConfig } from './config/appconfig';
+import { MasterServices } from './services/masterservice';
+import { TransactionServices } from './services/transactionservice';
 @NgModule({
   declarations: [
     AppComponent,
@@ -111,20 +99,16 @@ import { HttpClientModule } from '@angular/common/http'
     AppConfig,
     MasterServices,
     TransactionServices,
-    UserServices,
 
     {
       provide: MAT_DIALOG_DATA,
       useValue: {}
-
     },
     {
       provide: ErrorStateMatcher,
       useClass: ShowOnDirtyErrorStateMatcher
-    },
-
+    }
   ],
-  bootstrap: [AppComponent],
-
+  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

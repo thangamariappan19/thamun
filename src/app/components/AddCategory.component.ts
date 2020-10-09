@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { UserServices } from '../_Services/Userservices';
+import { UserServices } from '../services/Userservices';
 declare var $: any;
 @Component({
     selector: 'app-AddCategory',

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MasterServices } from 'src/app/services/masterservice';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-categorylist',
   templateUrl: './categorylist.component.html',
@@ -10,6 +11,7 @@ export class CategorylistComponent implements OnInit {
   customerList: any[] = [];
   constructor(
     private _masterService: MasterServices,
+    private _router: Router
   ) { }
 
   public ngOnInit(): void {
@@ -27,6 +29,10 @@ private _categoryList():void{
         console.log('error' + error);
       }
     );
+}
+
+backnav() {
+  this._router.navigate(['/category']);
 }
 }
 

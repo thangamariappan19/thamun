@@ -20,12 +20,12 @@ export class MasterServices {
     'Accept': 'application/json,Access-Control-Allow-Headers,Access-Control-Allow-Origin,Access-Control-Allow-Methods,text/plain'
   });
   
-  // getCategories() {
-  //   const options = new RequestOptions({ headers: this.headers });
-  //   return this.http.get(this.config.APIUrl + this.config.categories, options).map((response: Response) => {
-  //     return response.json();
-  //   });
-  // }
+  public getcategories() {
+    const options = new RequestOptions({ headers: this.headers });
+    return this.http.get(this.config.APIUrl + this.config.categories, options).map((response: Response) => {
+      return response.json();
+    });
+  }
 
   
   customerList: any[] = customerList;

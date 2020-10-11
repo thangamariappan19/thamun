@@ -13,7 +13,7 @@ export class CategoryComponent implements OnInit {
   CategoryName: string;
   // Slug: string;
   Status: Boolean;
-  playerForm: FormGroup;
+  categoryForm: FormGroup;
   submitted = false;
   CategoryData: any = [];
   CheckData: any = [];
@@ -42,14 +42,13 @@ export class CategoryComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.playerForm = this.formBuilder.group({
+    this.categoryForm = this.formBuilder.group({
       parentCategory: ['', Validators.required],
       depth: ['', Validators.required],
       categoryName: ['', Validators.required],
-      // slug: [''],
       status: false,
   });
-  this.playerForm.reset();
+  this.categoryForm.reset();
     this.Editdata = JSON.parse(localStorage.getItem('Editdata'));
     this.i = localStorage.getItem('i');
     this.CheckData = JSON.parse(localStorage.getItem('CategoryData'));
@@ -58,15 +57,15 @@ export class CategoryComponent implements OnInit {
       this.Updatedata(this.Editdata);
     } else {
       this.buttontext = 'Save';
-      this.playerForm.reset();
+      this.categoryForm.reset();
     }
   }
   
-  get f() { return this.playerForm.controls; }
-  saverecord() {
+  get f() { return this.categoryForm.controls; }
+  public saveCategory(): void {
     this.submitted = true;
     // stop here if form is invalid
-    if (this.playerForm.invalid) {
+    if (this.categoryForm.invalid) {
       return;
     } else {
       if (this.buttontext === 'Save') {
@@ -74,7 +73,7 @@ export class CategoryComponent implements OnInit {
           ParentCategory: this.ParentCategory,
           Depth: this.Depth,
           CategoryName: this.CategoryName,
-          Slug: this.CategoryName.replace(/\s/g, "").toLowerCase(),
+          Slug: this.CategoryName.replace(/\s/g, '').toLowerCase(),
           Status: this.Status
         };
         this.CategoryData.push(data);

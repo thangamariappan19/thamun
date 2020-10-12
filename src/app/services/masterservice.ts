@@ -22,7 +22,7 @@ export class MasterServices {
   
   public getcategories() {
     const options = new RequestOptions({ headers: this.headers });
-    return this.http.get(this.config.APIUrl + this.config.categories, options).map((response: Response) => {
+    return this.http.get(this.config.APIUrl + this.config.categories, null).map((response: any) => {
       return response.json();
     });
   }

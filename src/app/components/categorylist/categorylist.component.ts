@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./categorylist.component.css']
 })
 export class CategorylistComponent implements OnInit {
-  categoryData: any = [];
+  categoryData: any[] = [];
   customerList: any[] = [];
   constructor(
     private _masterService: MasterServices,
@@ -35,16 +35,28 @@ public _categoryList() {
       this._masterService.getcategories()
           .subscribe(data => {
             console.log(data)
-              if (data != null && data.msg.length > 0) {
+              if (data) {
                // this.customerList = response['res'];
-                this.categoryData = this.customerList[0].data;
+                this.categoryData =data.data.content;
                 
-            
+            console.log(this.categoryData)
               }
           });
   }
 
+
+editdata(data, i) {
+  localStorage.setItem('EditProductdata', JSON.stringify(data));
+  localStorage.setItem('i', JSON.stringify(i));
+  this._router.navigate(['/category']);
+}
+Delete(i) {
+  this.categoryData.splice(i, 1);
+  localStorage.setItem('ProductListData', JSON.stringify(this.categoryData));
+}
+
 backnav() {
+  localStorage.removeItem('EditProductdata');
   this._router.navigate(['/category']);
 }
 }

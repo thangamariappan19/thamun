@@ -33,12 +33,12 @@
                 <th class="th-sm">Action</th>
               </tr>
             </thead>
-            <tbody *ngIf="categoryData.content">
-              <tr *ngFor="let data of categoryData.content; let i = index">
-                <td>{{ data.categoryId }}</td>
+            <tbody *ngIf="categoryData">
+              <tr *ngFor="let data of categoryData; let i = index">
                 <td>{{ data.categoryCode }}</td>
+                <td>{{ data.descriptions[1].categoryName }}</td>
                 <td>{{ data.depth }}</td>
-                <td>{{ data.Slug }}</td>
+                <td>{{ data.descriptions[1].slug }}</td>
                 <td>{{ data.active }}</td>
                 <td>
                   <a

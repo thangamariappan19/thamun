@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MasterServices } from 'src/app/services/masterservice';
 
 @Component({
   selector: 'app-category',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class CategoryComponent implements OnInit {
   ParentCategory: string;
-  Depth: string;
+  Depth: number;
   CategoryName: string;
   // Slug: string;
   Status: Boolean;
@@ -37,6 +38,7 @@ export class CategoryComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
+    private _masterService: MasterServices,
   ) {
  
   }
@@ -70,21 +72,35 @@ export class CategoryComponent implements OnInit {
     } else {
       if (this.buttontext === 'Save') {
         const data = {
-          ParentCategory: this.ParentCategory,
-          Depth: this.Depth,
-          CategoryName: this.CategoryName,
-          Slug: this.CategoryName.replace(/\s/g, '').toLowerCase(),
-          Status: this.Status
+          categoryCode: this.CategoryName,
+          depth: this.Depth,
+          active: this.Status,
+          parentId: null,
+          descriptions: [{
+            categoryName: this.CategoryName,
+            slug: this.CategoryName.replace(/\s/g, '').toLowerCase(),
+            language: {
+               languageId:'en'
+              }
+          }]
         };
-        this.CategoryData.push(data);
-        if (this.CheckData != null) {
-          this.CheckData.push(data);
-          localStorage.setItem('CategoryData', JSON.stringify(this.CheckData));
-          this.router.navigate(['/categorylist']);
-        } else {
-          localStorage.setItem('CategoryData', JSON.stringify(this.CategoryData));
-          this.router.navigate(['/categorylist']);
-        }
+        this._masterService.addCategories(data)
+        .subscribe((data:any) => {
+            if (data.status === 'OK') {
+              this.router.navigate(['/categorylist']);
+             // this.customerList = response['res'];
+           //   this.categoryData =data.data.content;
+            }
+        });
+        // this.CategoryData.push(data);
+        // if (this.CheckData != null) {
+        //   this.CheckData.push(data);
+        //   localStorage.setItem('CategoryData', JSON.stringify(this.CheckData));
+        //   this.router.navigate(['/categorylist']);
+        // } else {
+        //   localStorage.setItem('CategoryData', JSON.stringify(this.CategoryData));
+        //   this.router.navigate(['/categorylist']);
+        // }
 
       } else {
         const data = {

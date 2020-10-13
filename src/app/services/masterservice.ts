@@ -26,6 +26,13 @@ export class MasterServices {
       return response.json();
     });
   }
+  public addCategories(data:any) {
+    const body = JSON.stringify(data)
+    return this.http.post(`${this.config.APIUrl}${this.config.categories}`, data,null)
+      .map(res => {
+        return res.json();
+      });
+  }
 
   
   customerList: any[] = customerList;

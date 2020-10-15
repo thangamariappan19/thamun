@@ -33,3 +33,11 @@ input[type=submit]:hover {
   background-color: #f2f2f2;
   padding: 20px;
 }
+
+.checkboxlabel{
+  margin-bottom: 0;
+  text-align: right;
+}
+.btnSize{
+  padding: 2%;
+}

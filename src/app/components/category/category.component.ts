@@ -75,7 +75,7 @@ export class CategoryComponent implements OnInit {
           categoryCode: this.CategoryName,
           depth: this.Depth,
           active: this.Status,
-          parentId: null,
+          parentId: this.ParentCategory,
           descriptions: [{
             categoryName: this.CategoryName,
             slug: this.CategoryName.replace(/\s/g, '').toLowerCase(),

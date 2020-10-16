@@ -1,749 +1,467 @@
-<section ui-view="" id="content" autoscroll="false" class="ng-scope" style="">
-  <!-- uiView: -->
-  <div ui-view="" class="ng-scope" style="">
-    <div class="page page-categories ng-scope" ng-controller="NewCategoryCtrl">
-      <div class="pageheader">
-        <h2>Add Category</h2>
-        <div class="page-bar">
-          <ul class="page-breadcrumb">
-            <li>
-              <a
-                ui-sref="app.dashboard"
-                class="ng-binding"
-                href="#/app/dashboard"
-                ><i class="fa fa-home"></i> Minovate CRUD App</a
-              >
-            </li>
-            <li>
-              <a ui-sref="app.categories.list" href="#/app/categories/list"
-                >Manage Categories</a
-              >
-            </li>
-            <li>
-              <a ui-sref="app.categories.new" href="#/app/categories/new"
-                >Add Category</a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
-      <!-- row -->
-      <div class="row">
-        <div class="col-md-12">
-          <!-- tile -->
-          <section class="tile tile-simple">
-            <!-- tile body -->
-            <!-- ngInclude: 'views/pages/categories/_form.html' -->
-            <div
-              class="tile-body ng-scope"
-              ng-include="'views/pages/categories/_form.html'"
-            >
-              <form
-                name="form"
-                class="form-horizontal form-validation ng-scope ng-invalid ng-invalid-required ng-dirty ng-valid-parse"
-                role="form"
-                novalidate=""
-                style=""
-              >
-                <div class="form-group mt-20">
-                  <label for="name" class="col-sm-3 control-label"
-                    >Name
-                    <span class="text-danger" style="font-size: 15px"
-                      >*</span
-                    ></label
-                  >
-                  <div class="col-sm-9">
-                    <input
-                      type="text"
-                      name="name"
-                      class="form-control ng-pristine ng-empty ng-invalid ng-invalid-required ng-touched"
-                      id="name"
-                      placeholder="Category name..."
-                      ng-model="category.name"
-                      required=""
-                      style=""
-                    />
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="parent" class="col-sm-3 control-label"
-                    >Parent Category</label
-                  >
-                  <div class="col-sm-9">
-                    <select
-                      chosen="{width: '100%'}"
-                      name="parent"
-                      class="form-control ng-valid localytics-chosen ng-touched ng-not-empty ng-dirty ng-valid-parse"
-                      id="parent"
-                      ng-options="c.$id as c.name for c in categories"
-                      ng-model="category.parentId"
-                      style="display: none;"
-                      ><option value=" " class="" selected="selected"> </option
-                      ><option label="Shoes" value="string:-K2v7qbiYLxQy0S6Uret"
-                        >Shoes</option
-                      ><option
-                        label="Shirts"
-                        value="string:-K2v7scCRKV9T1ettNqD"
-                        >Shirts</option
-                      ><option
-                        label="Accessories"
-                        value="string:-K2v8Oo_32l4aXGvXxTI"
-                        >Accessories</option
-                      ><option
-                        label="Watches"
-                        value="string:-K2v8Qs4Wi36eykrXV-s"
-                        >Watches</option
-                      ><option
-                        label="Sunglasses"
-                        value="string:-K2v8U6DUdp0BKHM4Yh2"
-                        >Sunglasses</option
-                      ><option
-                        label="Clothing"
-                        value="string:-K2v8d8zR-BI2BmyJ7xH"
-                        >Clothing</option
-                      ><option label="Boots" value="string:-K2v8stD4c6EWlxfMnEO"
-                        >Boots</option
-                      ><option
-                        label="Trainers"
-                        value="string:-K2v8vg52VSK7OMo4j1k"
-                        >Trainers</option
-                      ><option
-                        label="High Tops"
-                        value="string:-K2v95TT_c43fTvJyMZq"
-                        >High Tops</option
-                      ><option
-                        label="Plimsolls"
-                        value="string:-K2v9AKqKVFDtlct_zd3"
-                        >Plimsolls</option
-                      ><option
-                        label="Desert Boots"
-                        value="string:-K2v9DhMHhydeDerok4w"
-                        >Desert Boots</option
-                      ><option
-                        label="Boat Shoes"
-                        value="string:-K2v9G06rQTOYkLyoypD"
-                        >Boat Shoes</option
-                      ><option
-                        label="Trausers"
-                        value="string:-K2vKzwM_PvyB0CP8_ZS"
-                        >Trausers</option
-                      ><option
-                        label="Jackets"
-                        value="string:-K2vLPyB60IRl76p5R1-"
-                        >Jackets</option
-                      ><option
-                        label="Shorts"
-                        value="string:-K2vLetDUcR8Ugr4a5ak"
-                        >Shorts</option
-                      ><option label="Polo" value="string:-K2vMcq8GP4u9LGkNVy4"
-                        >Polo</option
-                      ><option
-                        label="T-Shirt"
-                        value="string:-K2vMw3ILz2TpwZPaGlS"
-                        >T-Shirt</option
-                      ><option label="Suits" value="string:-K2vNFZpnZqqevmMKSBA"
-                        >Suits</option
-                      ><option label="Skirt" value="string:-K2vNduPn-nOUOEKowu0"
-                        >Skirt</option
-                      ></select
-                    >
-                    <div
-                      class="chosen-container chosen-container-single"
-                      style="width: 100%;"
-                      title=""
-                      id="parent_chosen"
-                    >
-                      <a class="chosen-single"
-                        ><span>Sunglasses</span>
-                        <div><b></b></div
-                      ></a>
-                      <div class="chosen-drop">
-                        <div class="chosen-search">
-                          <input type="text" autocomplete="off" />
-                        </div>
-                        <ul class="chosen-results">
-                          <li
-                            class="active-result"
-                            data-option-array-index="1"
-                            style=""
-                          >
-                            Shoes
-                          </li>
-                          <li
-                            class="active-result"
-                            data-option-array-index="2"
-                            style=""
-                          >
-                            Shirts
-                          </li>
-                          <li
-                            class="active-result"
-                            data-option-array-index="3"
-                            style=""
-                          >
-                            Accessories
-                          </li>
-                          <li
-                            class="active-result"
-                            data-option-array-index="4"
-                            style=""
-                          >
-                            Watches
-                          </li>
-                          <li
-                            class="active-result result-selected"
-                            data-option-array-index="5"
-                            style=""
-                          >
-                            Sunglasses
-                          </li>
-                          <li
-                            class="active-result"
-                            data-option-array-index="6"
-                            style=""
-                          >
-                            Clothing
-                          </li>
-                          <li
-                            class="active-result"
-                            data-option-array-index="7"
-                            style=""
-                          >
-                            Boots
-                          </li>
-                          <li
-                            class="active-result"
-                            data-option-array-index="8"
-                            style=""
-                          >
-                            Trainers
-                          </li>
-                          <li
-                            class="active-result"
-                            data-option-array-index="9"
-                            style=""
-                          >
-                            High Tops
-                          </li>
-                          <li
-                            class="active-result"
-                            data-option-array-index="10"
-                            style=""
-                          >
-                            Plimsolls
-                          </li>
-                          <li
-                            class="active-result"
-                            data-option-array-index="11"
-                            style=""
-                          >
-                            Desert Boots
-                          </li>
-                          <li
-                            class="active-result"
-                            data-option-array-index="12"
-                            style=""
-                          >
-                            Boat Shoes
-                          </li>
-                          <li
-                            class="active-result"
-                            data-option-array-index="13"
-                            style=""
-                          >
-                            Trausers
-                          </li>
-                          <li
-                            class="active-result"
-                            data-option-array-index="14"
-                            style=""
-                          >
-                            Jackets
-                          </li>
-                          <li
-                            class="active-result"
-                            data-option-array-index="15"
-                            style=""
-                          >
-                            Shorts
-                          </li>
-                          <li
-                            class="active-result"
-                            data-option-array-index="16"
-                            style=""
-                          >
-                            Polo
-                          </li>
-                          <li
-                            class="active-result"
-                            data-option-array-index="17"
-                            style=""
-                          >
-                            T-Shirt
-                          </li>
-                          <li
-                            class="active-result"
-                            data-option-array-index="18"
-                            style=""
-                          >
-                            Suits
-                          </li>
-                          <li
-                            class="active-result"
-                            data-option-array-index="19"
-                            style=""
-                          >
-                            Skirt
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-footer">
-                  <button
-                    class="btn btn-success b-0 pull-right"
-                    ng-click="ok()"
-                    ng-disabled="form.$invalid"
-                    disabled="disabled"
-                  >
-                    Submit
-                  </button>
-                  <button
-                    class="btn btn-lightred btn-ef btn-ef-4 btn-ef-4c"
-                    ui-sref="app.categories.list"
-                    href="#/app/categories/list"
-                  >
-                    <i class="fa fa-arrow-left"></i> Cancel
-                  </button>
-                </div>
-              </form>
-            </div>
-            <!-- /tile body -->
-          </section>
-          <!-- /tile -->
-        </div>
-      </div>
-      <!-- /row -->
-    </div>
-  </div>
-</section>
 <section id="content">
-  <div class="page page-forms-common">
-    <h3>Product Form</h3>
-    <form [formGroup]="playerForm" (ngSubmit)="saverecord()">
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="form-body">
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="Palyer Name">
-                  ID
-                  <span class="require">*</span>
-                </label>
-                <div class="col-md-8">
-                  <div class="input-group">
-                    <!-- <span class="input-group-addon">
-                                            <i class=" "></i>
-                                        </span> -->
-                    <input
-                      type="text"
-                      class="form-control"
-                      [(ngModel)]="ProductID"
-                      name="PlayerName"
-                      placeholder="ProductID"
-                      formControlName="productID"
-                      [ngClass]="{
-                        'is-invalid': submitted && f.productID.errors
-                      }"
-                    />
-                  </div>
-                  <div
-                    *ngIf="submitted && f.productID.errors"
-                    class="invalid-feedback"
-                  >
-                    <div *ngIf="f.productID.errors.required">
-                      productID is Required
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="Palyer Name">
-                  Product Name
-                  <span class="require">*</span>
-                </label>
-                <div class="col-md-8">
-                  <div class="input-group">
-                    <!-- <span class="input-group-addon">
-                                            <i class=" "></i>
-                                        </span> -->
-                    <input
-                      type="text"
-                      class="form-control"
-                      [(ngModel)]="ProductName"
-                      name="ProductName"
-                      placeholder="Product Name"
-                      [ngClass]="{
-                        'is-invalid': submitted && f.productName.errors
-                      }"
-                      formControlName="productName"
-                    />
-                  </div>
-                  <div
-                    *ngIf="submitted && f.productName.errors"
-                    class="invalid-feedback"
-                  >
-                    <div *ngIf="f.productName.errors.required">
-                      ProductName is Required
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="email" class="control-label col-lg-4"
-                  >Description
-                  <span class="require">*</span>
-                </label>
-                <div class="col-lg-8">
-                  <div class="input-group">
-                    <textarea
-                      formControlName="description"
-                      maxlength="150"
-                      [(ngModel)]="Description"
-                      class="form-control"
-                      placeholder="Enter the description"
-                      rows="3"
-                      [ngClass]="{
-                        'is-invalid': submitted && f.description.errors
-                      }"
-                      autocomplete="off"
-                    ></textarea>
-                  </div>
-                  <div
-                    *ngIf="submitted && f.description.errors"
-                    class="invalid-feedback"
-                  >
-                    <div *ngIf="f.description.errors.required">
-                      Address is required
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="email" class="control-label col-lg-4"
-                  >Short Description
-                  <span class="require">*</span>
-                </label>
-                <div class="col-lg-8">
-                  <div class="input-group">
-                    <textarea
-                      formControlName="shortDescription"
-                      maxlength="150"
-                      [(ngModel)]="ShortDescription"
-                      class="form-control"
-                      placeholder="Enter the shortDescription"
-                      rows="3"
-                      [ngClass]="{
-                        'is-invalid': submitted && f.shortDescription.errors
-                      }"
-                      autocomplete="off"
-                    ></textarea>
-                  </div>
-                  <div
-                    *ngIf="submitted && f.shortDescription.errors"
-                    class="invalid-feedback"
-                  >
-                    <div *ngIf="f.shortDescription.errors.required">
-                      shortDescription is required
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="usr_name">
-                  Category
-                  <span class="require">*</span>
-                </label>
+  <div class="page page-categories">
+    <div class="pageheader">
+      <h2>Add Product</h2>
+      <div class="page-bar">
+        <ul class="page-breadcrumb">
+          <li>
+            <a><i class="fa fa-home"></i>CRUD App</a>
+          </li>
+          <li>
+            <a>Manage Product</a>
+          </li>
+          <li>
+            <a>Add Product</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- row -->
+    <div class="row">
+      <div class="col-md-12">
+        <!-- tile -->
+        <section class="tile tile-simple">
+          <div class="tile-body">
+            <form
+              class="form-horizontal"
+              [formGroup]="playerForm"
+              (ngSubmit)="saverecord()"
+            >
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="col-md-4 control-label" for="Palyer Name">
+                      ID
+                      <span class="require">*</span>
+                    </label>
+                    <div class="col-md-8">
+                      <input
+                        type="text"
+                        class="form-control"
+                        [(ngModel)]="ProductID"
+                        name="PlayerName"
+                        placeholder="ProductID"
+                        formControlName="productID"
+                        [ngClass]="{
+                          'is-invalid': submitted && f.productID.errors
+                        }"
+                      />
 
-                <div class="col-md-8">
-                  <div class="input-group">
-                    <ng-multiselect-dropdown
-                      [placeholder]="'Select category'"
-                      formControlName="category"
-                      [data]="category"
-                      [(ngModel)]="Category"
-                      [settings]="dropdownSettings"
-                      (onSelect)="onItemSelect($event)"
-                      (onSelectAll)="onSelectAll($event)"
-                      [required]="requiredField"
-                      [ngClass]="setClass()"
-                      name="countrySelect"
-                    >
-                    </ng-multiselect-dropdown>
-                  </div>
-                  <div
-                    *ngIf="submitted && f.category.errors"
-                    class="invalid-feedback"
-                  >
-                    <div *ngIf="f.category.errors.required">
-                      Category is required
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="Palyer Name">
-                  Price
-                  <span class="require">*</span>
-                </label>
-                <div class="col-md-8">
-                  <div class="input-group">
-                    <!-- <span class="input-group-addon">
-                                            <i class=" "></i>
-                                        </span> -->
-                    <input
-                      type="text"
-                      class="form-control"
-                      [(ngModel)]="Price"
-                      name="price"
-                      placeholder="price"
-                      [ngClass]="{ 'is-invalid': submitted && f.price.errors }"
-                      formControlName="price"
-                    />
-                  </div>
-                  <div
-                    *ngIf="submitted && f.price.errors"
-                    class="invalid-feedback"
-                  >
-                    <div *ngIf="f.price.errors.required">price is Required</div>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="Palyer Name">
-                  Discount
-                  <span class="require">*</span>
-                </label>
-                <div class="col-md-8">
-                  <div class="input-group">
-                    <!-- <span class="input-group-addon">
-                                            <i class=" "></i>
-                                        </span> -->
-                    <input
-                      type="text"
-                      class="form-control"
-                      [(ngModel)]="Discount"
-                      name="Discount"
-                      placeholder="Discount"
-                      [ngClass]="{
-                        'is-invalid': submitted && f.discount.errors
-                      }"
-                      formControlName="discount"
-                    />
-                  </div>
-                  <div
-                    *ngIf="submitted && f.discount.errors"
-                    class="invalid-feedback"
-                  >
-                    <div *ngIf="f.discount.errors.required">
-                      discount is Required
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="usr_name">
-                  Unit
-                  <span class="require">*</span>
-                </label>
-                <div class="col-md-8">
-                  <div class="input-group">
-                    <select
-                      required
-                      [(ngModel)]="Unit"
-                      formControlName="unit"
-                      class="form-control"
-                      [ngClass]="{ 'is-invalid': submitted && f.unit.errors }"
-                      autocomplete="off"
-                    >
-                      <option value="undefined" disabled selected
-                        >Select unit</option
+                      <div
+                        *ngIf="submitted && f.productID.errors"
+                        class="invalid-feedback"
                       >
-                      <option
-                        *ngFor="let data of unit"
-                        value="{{ data.unitName }}"
-                      >
-                        {{ data.unitName }}</option
-                      >
-                    </select>
-                  </div>
-                  <div
-                    *ngIf="submitted && f.unit.errors"
-                    class="invalid-feedback"
-                  >
-                    <div *ngIf="f.unit.errors.required">unit is required</div>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="usr_name">
-                  Select Size
-                  <span class="require">*</span>
-                </label>
-                <div class="col-md-8">
-                  <div class="flex-container flex-wrap">
-                    <div class="element">
-                      <div class="flex-container">
-                        <div
-                          *ngFor="
-                            let hobby of playerForm.controls.hobbies.controls;
-                            let i = index
-                          "
-                          class="flex-container  align-center multi-checkbox"
-                        >
-                          <input
-                            type="checkbox"
-                            [formControl]="hobby"
-                            (change)="
-                              getSelectedHobbies(hobby, myhobbies[i].name)
-                            "
-                          />
-                          {{ myhobbies[i].name }}
+                        <div *ngIf="f.productID.errors.required">
+                          productID is Required
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="usr_name">
-                  Select Color
-                </label>
-                <div class="col-md-8">
-                  <div class="input-group">
-                    <ng-multiselect-dropdown
-                      [placeholder]="'Select color'"
-                      formControlName="color"
-                      [data]="ColorData"
-                      [(ngModel)]="Color"
-                      [settings]="dropdownColor"
-                      (onSelect)="onItemSelect($event)"
-                      (onSelectAll)="onSelectAll($event)"
-                      [required]="requiredField"
-                      [ngClass]="setClass()"
-                      name="countrySelect"
-                    >
-                    </ng-multiselect-dropdown>
-                  </div>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="usr_name">
-                  Status
-                  <span class="require">*</span>
-                </label>
-                <div class="col-md-8">
-                  <div class="input-group">
-                    <select
-                      required
-                      [(ngModel)]="Status"
-                      formControlName="status"
-                      class="form-control"
-                      [ngClass]="{ 'is-invalid': submitted && f.status.errors }"
-                      autocomplete="off"
-                    >
-                      <option value="undefined" disabled selected
-                        >Select status</option
-                      >
-                      <option
-                        *ngFor="let data of status"
-                        value="{{ data.status }}"
-                      >
-                        {{ data.status }}</option
-                      >
-                    </select>
-                  </div>
-                  <div
-                    *ngIf="submitted && f.status.errors"
-                    class="invalid-feedback"
-                  >
-                    <div *ngIf="f.status.errors.required">
-                      status is required
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="usr_name">
-                  Select Image
-                </label>
-                <div class="col-md-8">
-                  <div class="input-group">
-                    <div
-                      class="fileupload fileupload-new"
-                      data-provides="fileupload"
-                    >
-                      <div
-                        class="fileupload-new thumbnail"
-                        style="width: 106px;height: 113px;"
-                        id="previewimg"
-                      >
-                        <img
-                          src="{{ ProductImage }}"
-                          id="myfile"
-                          alt="image"
-                          style="background: #79838e;border-radius: 99px;border-radius: 69px"
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="col-md-4 control-label" for="Palyer Name">
+                     Name
+                      <span class="require">*</span>
+                    </label>
+                    <div class="col-md-8">
+                        <input
+                          type="text"
+                          class="form-control"
+                          [(ngModel)]="ProductName"
+                          name="ProductName"
+                          placeholder="Product Name"
+                          [ngClass]="{
+                            'is-invalid': submitted && f.productName.errors
+                          }"
+                          formControlName="productName"
                         />
-                      </div>
+                    
                       <div
-                        class="fileupload-preview fileupload-exists thumbnail"
-                        id="imagePreview"
-                        style="width: 150px;height: 139px;line-height: 20px; border-radius: 69px;display: none"
-                      ></div>
-                      <div>
-                        <button
-                          type="file"
-                          accept=".png, .jpg, .jpeg"
-                          (change)="onFileChange($event)"
-                          class="btn btn-custom btn-file upload-button"
-                          id="selectbtn"
-                        >
-                          <!-- <span class="fileupload-new">
-                            <i class="fa fa-paper-clip"></i> Upload Image</span
-                          >
-                          <span class="fileupload-exists" id="changeid">
-                            <i class="fa fa-undo"></i> Change</span
-                          > -->
-                          <input
-                            type="file"
-                            class="btn-light file-upload"
-                            id="changeid"
-                          />
-                        </button>
+                        *ngIf="submitted && f.productName.errors"
+                        class="invalid-feedback"
+                      >
+                        <div *ngIf="f.productName.errors.required">
+                          ProductName is Required
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="usr_name">
+                        Category
+                        <span class="require">*</span>
+                      </label>
+  
+                      <div class="col-md-8">
+                          <ng-multiselect-dropdown
+                            [placeholder]="'Select category'"
+                            formControlName="category"
+                            [data]="category"
+                            [(ngModel)]="Category"
+                            [settings]="dropdownSettings"
+                            (onSelect)="onItemSelect($event)"
+                            (onSelectAll)="onSelectAll($event)"
+                            [required]="requiredField"
+                            [ngClass]="setClass()"
+                            name="countrySelect"
+                          >
+                          </ng-multiselect-dropdown>
+                        <div
+                          *ngIf="submitted && f.category.errors"
+                          class="invalid-feedback"
+                        >
+                          <div *ngIf="f.category.errors.required">
+                            Category is required
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
               </div>
-            </div>
+              <div class="row">
+              
+              
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="col-md-4 control-label" for="Palyer Name">
+                      Price
+                      <span class="require">*</span>
+                    </label>
+                    <div class="col-md-8">
+               
+                        <input
+                          type="text"
+                          class="form-control"
+                          [(ngModel)]="Price"
+                          name="price"
+                          placeholder="price"
+                          [ngClass]="{
+                            'is-invalid': submitted && f.price.errors
+                          }"
+                          formControlName="price"
+                        />
+                    
+                      <div
+                        *ngIf="submitted && f.price.errors"
+                        class="invalid-feedback"
+                      >
+                        <div *ngIf="f.price.errors.required">
+                          price is Required
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="Palyer Name">
+                        Discount
+                        <span class="require">*</span>
+                      </label>
+                      <div class="col-md-8">
+                          <input
+                            type="text"
+                            class="form-control"
+                            [(ngModel)]="Discount"
+                            name="Discount"
+                            placeholder="Discount"
+                            [ngClass]="{
+                              'is-invalid': submitted && f.discount.errors
+                            }"
+                            formControlName="discount"
+                          />
+                      
+                        <div
+                          *ngIf="submitted && f.discount.errors"
+                          class="invalid-feedback"
+                        >
+                          <div *ngIf="f.discount.errors.required">
+                            discount is Required
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="usr_name">
+                        Unit
+                        <span class="require">*</span>
+                      </label>
+                      <div class="col-md-8">
+                          <select
+                            required
+                            [(ngModel)]="Unit"
+                            formControlName="unit"
+                            class="form-control"
+                            [ngClass]="{
+                              'is-invalid': submitted && f.unit.errors
+                            }"
+                            autocomplete="off"
+                          >
+                            <option value="undefined" disabled selected
+                              >Select unit</option
+                            >
+                            <option
+                              *ngFor="let data of unit"
+                              value="{{ data.unitName }}"
+                            >
+                              {{ data.unitName }}</option
+                            >
+                          </select>
+                      
+                        <div
+                          *ngIf="submitted && f.unit.errors"
+                          class="invalid-feedback"
+                        >
+                          <div *ngIf="f.unit.errors.required">
+                            unit is required
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="usr_name">
+                        Select Color
+                      </label>
+                      <div class="col-md-8">
+                          <ng-multiselect-dropdown
+                            [placeholder]="'Select color'"
+                            formControlName="color"
+                            [data]="ColorData"
+                            [(ngModel)]="Color"
+                            [settings]="dropdownColor"
+                            (onSelect)="onItemSelect($event)"
+                            (onSelectAll)="onSelectAll($event)"
+                            [required]="requiredField"
+                            [ngClass]="setClass()"
+                            name="countrySelect"
+                          >
+                          </ng-multiselect-dropdown>
+                      
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="usr_name">
+                        Status
+                        <span class="require">*</span>
+                      </label>
+                      <div class="col-md-8">
+                          <select
+                            required
+                            [(ngModel)]="Status"
+                            formControlName="status"
+                            class="form-control"
+                            [ngClass]="{
+                              'is-invalid': submitted && f.status.errors
+                            }"
+                            autocomplete="off"
+                          >
+                            <option value="undefined" disabled selected
+                              >Select status</option
+                            >
+                            <option
+                              *ngFor="let data of status"
+                              value="{{ data.status }}"
+                            >
+                              {{ data.status }}</option
+                            >
+                          </select>
+                        
+                        <div
+                          *ngIf="submitted && f.status.errors"
+                          class="invalid-feedback"
+                        >
+                          <div *ngIf="f.status.errors.required">
+                            status is required
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="usr_name">
+                          Select Size
+                          <span class="require">*</span>
+                        </label>
+                        <div class="col-md-8">
+                          <div class="flex-container flex-wrap">
+                            <div class="element">
+                              <div class="flex-container">
+                                <div
+                                  *ngFor="
+                                    let hobby of playerForm.controls.hobbies
+                                      .controls;
+                                    let i = index
+                                  "
+                                  class="flex-container  align-center multi-checkbox"
+                                >
+                                  <input
+                                    type="checkbox"
+                                    [formControl]="hobby"
+                                    (change)="
+                                      getSelectedHobbies(hobby, myhobbies[i].name)
+                                    "
+                                  />
+                                  {{ myhobbies[i].name }}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="col-md-4 control-label" for="usr_name">
+                      Select Image
+                    </label>
+                    <div class="col-md-8">
+                   
+                        <div
+                          class="fileupload fileupload-new"
+                          data-provides="fileupload"
+                        >
+                          <!-- <div
+                            class="fileupload-new thumbnail"
+                            style="width: 106px;height: 113px;"
+                            id="previewimg"
+                          >
+                            <img
+                              src="{{ ProductImage }}"
+                              id="myfile"
+                              alt="image"
+                              style="background: #79838e;border-radius: 99px;border-radius: 69px"
+                            />
+                          </div> -->
+                          <!-- <div
+                            class="fileupload-preview fileupload-exists thumbnail"
+                            id="imagePreview"
+                            style="width: 150px;height: 139px;line-height: 20px; border-radius: 69px;display: none"
+                          ></div> -->
+                          <div>
+                            <button
+                              type="file"
+                              accept=".png, .jpg, .jpeg"
+                              (change)="onFileChange($event)"
+                              class="btn btn-custom btn-file upload-button"
+                              id="selectbtn"
+                            >
+                              <!-- <span class="fileupload-new">
+                          <i class="fa fa-paper-clip"></i> Upload Image</span
+                        >
+                        <span class="fileupload-exists" id="changeid">
+                          <i class="fa fa-undo"></i> Change</span
+                        > -->
+                              <input  style="width:180px"
+                                type="file"
+                                class="btn-light file-upload"
+                                id="changeid"
+                              />
+                            </button>
+                      
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="email" class="control-label col-lg-4"
+                        >Description
+                        <span class="require">*</span>
+                      </label>
+                      <div class="col-lg-8">
+                          <textarea
+                            formControlName="description"
+                            maxlength="150"
+                            [(ngModel)]="Description"
+                            class="form-control"
+                            placeholder="Enter the description"
+                            rows="3"
+                            [ngClass]="{
+                              'is-invalid': submitted && f.description.errors
+                            }"
+                            autocomplete="off"
+                          ></textarea>
+                      
+                        <div
+                          *ngIf="submitted && f.description.errors"
+                          class="invalid-feedback"
+                        >
+                          <div *ngIf="f.description.errors.required">
+                            Address is required
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="email" class="control-label col-lg-4"
+                          >Short Description
+                          <span class="require">*</span>
+                        </label>
+                        <div class="col-lg-8">
+                            <textarea
+                              formControlName="shortDescription"
+                              maxlength="150"
+                              [(ngModel)]="ShortDescription"
+                              class="form-control"
+                              placeholder="Enter the shortDescription"
+                              rows="3"
+                              [ngClass]="{
+                                'is-invalid': submitted && f.shortDescription.errors
+                              }"
+                              autocomplete="off"
+                            ></textarea>
+                        
+                          <div
+                            *ngIf="submitted && f.shortDescription.errors"
+                            class="invalid-feedback"
+                          >
+                            <div *ngIf="f.shortDescription.errors.required">
+                              shortDescription is required
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+              </div>
+              <div class="row">
+               
+              </div>
+              <div class="form-group btnSize">
+                <button type="submit" class="btn btn-success b-0 pull-right">
+                  Submit
+                </button>
+                <button
+                  class="btn btn-danger pull-right modButAli"
+                  (click)="backnavlist()"
+                >
+                  <i class="fa fa-arrow-left"></i> Cancel
+                </button>
+              </div>
+            </form>
           </div>
-        </div>
+          <!-- /tile body -->
+        </section>
+        <!-- /tile -->
       </div>
-      <div class="modal-footer">
-        <button
-          type="button"
-          class="btn btn-danger pull-right modButAli"
-          (click)="backnavlist()"
-        >
-          <i class="fa fa-trash"></i> Cancel
-        </button>
-        <button type="submit" class="btn btn-success pull-right modButAli ">
-          <i class="fa fa-save backIcon"></i>Save
-        </button>
-      </div>
-    </form>
+    </div>
+    <!-- /row -->
   </div>
 </section>

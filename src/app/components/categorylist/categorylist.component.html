@@ -35,11 +35,11 @@
             </thead>
             <tbody *ngIf="categoryData">
               <tr *ngFor="let data of categoryData; let i = index">
-                <td>{{ data.categoryCode }}</td>
-                <td>{{ data.descriptions[1].categoryName }}</td>
-                <td>{{ data.depth }}</td>
-                <td>{{ data.descriptions[1].slug }}</td>
-                <td>{{ data.active }}</td>
+                <td>{{ data?.categoryCode }}</td>
+                <td>{{ data.descriptions[1]?.categoryName }}</td>
+                <td>{{ data?.depth }}</td>
+                <td>{{ data.descriptions[1]?.slug }}</td>
+                <td>{{ data?.active }}</td>
                 <td>
                   <a
                     class="myIcon icon-success icon-ef-3 icon-ef-3b icon-color"

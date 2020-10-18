@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Headers, HttpModule, RequestOptions, Http, Response } from '@angular/http';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { AppConfig } from '../config/appconfig';
 import 'rxjs/add/operator/map';
 import { Observable } from "rxjs";
@@ -22,7 +22,15 @@ export class MasterServices {
   
   public getcategories() {
     const options = new RequestOptions({ headers: this.headers });
-    return this.http.get(this.config.APIUrl + this.config.categories, null).map((response: any) => {
+   const  params = new HttpParams()
+    .set('page', '2')
+    .append('hitsPerPage', '10')
+    .set('sort', 'name');
+    return this.http.get(this.config.APIUrl + this.config.categories, {
+      params: {
+        page: '0',
+        hitsPerPage: '100'
+      }}).map((response: any) => {
       return response.json();
     });
   }

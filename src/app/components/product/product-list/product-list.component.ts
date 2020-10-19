@@ -16,7 +16,7 @@ export class ProductListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.ProductListData = JSON.parse(localStorage.getItem('ProductListData'));
+  //  this.ProductListData = JSON.parse(localStorage.getItem('ProductListData'));
   }
 editdata(data, i) {
   localStorage.setItem('EditProductdata', JSON.stringify(data));

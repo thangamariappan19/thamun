@@ -82,8 +82,8 @@
                       <option value="undefined" disabled selected
                         >Select category</option
                       >
-                      <option label="Clothings" value="1">Clothings</option
-                      ><option label="Grooming" value="2">Grooming</option>
+                      <option *ngFor="let item of categoryData" [ngValue]="item.categoryId">{{item.categoryCode}}</option
+                      >
                     </select>
                     <div
                       *ngIf="submitted && f.parentCategory.errors"

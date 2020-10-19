@@ -9,6 +9,7 @@ import { MasterServices } from 'src/app/services/masterservice';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
+  categoryData: any[] = [];
   ParentCategory: string;
   Depth: number;
   CategoryName: string;
@@ -21,20 +22,6 @@ export class CategoryComponent implements OnInit {
   Editdata: any = [];
   buttontext = 'Save';
   i: any;
-  public  category = [
-    {
-      id:'1',
-      categoryName:'Mobile Phones'
-    },
-    {
-      id:'2',
-      categoryName:'Electronics'
-    },
-    {
-      id:'3',
-      categoryName:'Grooming'
-    }
-  ] 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -50,8 +37,9 @@ export class CategoryComponent implements OnInit {
       categoryName: ['', Validators.required],
       status: false,
   });
+  this._categoryList();
   this.categoryForm.reset();
-    this.Editdata = JSON.parse(localStorage.getItem('Editdata'));
+    this.Editdata = JSON.parse(localStorage.getItem('EditCategorydata'));
     this.i = localStorage.getItem('i');
     this.CheckData = JSON.parse(localStorage.getItem('CategoryData'));
     if (this.Editdata != null) {
@@ -63,6 +51,16 @@ export class CategoryComponent implements OnInit {
     }
   }
   
+  private _categoryList() {
+    this._masterService.getcategories()
+        .subscribe(data => {
+          console.log(data)
+            if (data) {
+              this.categoryData = data.data.content;
+          console.log(this.categoryData)
+            }
+        });
+}
   get f() { return this.categoryForm.controls; }
   public saveCategory(): void {
     this.submitted = true;
@@ -85,7 +83,7 @@ export class CategoryComponent implements OnInit {
           }]
         };
         this._masterService.addCategories(data)
-        .subscribe((data:any) => {
+        .subscribe((data: any) => {
             if (data.status === 'OK') {
               this.router.navigate(['/categorylist']);
              // this.customerList = response['res'];
@@ -104,32 +102,35 @@ export class CategoryComponent implements OnInit {
 
       } else {
         const data = {
-          ParentCategory: this.ParentCategory,
-          Depth: this.Depth,
-          CategoryName: this.CategoryName,
-           Slug: this.CategoryName.trim(),
-          Status: this.Status
+          categoryCode: this.CategoryName,
+          depth: this.Depth,
+          active: this.Status,
+          parentId: this.ParentCategory,
+          categoryId:this.Editdata.categoryId,
+          descriptions: [{
+            categoryName: this.CategoryName,
+            slug: this.CategoryName.replace(/\s/g, '').toLowerCase(),
+            language: {
+               languageId: 'en'
+              }
+          },]
         };
-        if (this.CheckData != null) {
-          this.CheckData.splice(this.i, 1);
-          this.CheckData.push(data);
-          localStorage.setItem('CategoryData', JSON.stringify(this.CheckData));
-          this.router.navigate(['/categorylist']);
-        } else {
-          localStorage.setItem('CategoryData', JSON.stringify(this.CategoryData));
-          this.router.navigate(['/categorylist']);
-        }
+        this._masterService.categoryUpdate(data)
+        .subscribe((data: any) => {
+            if (data.status === 'OK') {
+              this.router.navigate(['/categorylist']);
+            }
+        });
       }
 
     }
   }
 
   Updatedata(Editdata) {
-    this.ParentCategory = Editdata.ParentCategory;
-   this.Depth = Editdata.Depth;
-    this.CategoryName = Editdata.CategoryName;
-    //  this.Slug = Editdata.Slug;
-    this.Status = Editdata.Status;
+    this.ParentCategory = Editdata.categoryId;
+   this.Depth = Editdata.depth;
+    this.CategoryName = Editdata.descriptions[1].categoryName;
+    this.Status = Editdata.active;
     this.i = this.i;
   }
   backnavlist() {

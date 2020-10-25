@@ -494,14 +494,10 @@ margin-right: 88px !important;}
 .mat-header-cell {
   font-size: 15px !important;
   font-weight: 500;
-  color:white !important;
+  color:#000 !important;
 }
 .mat-checkbox.mat-accent.mat-checkbox-checked{
   border-color: #3c3246 !important;
-}
-.mat-header-row {
-  background:#3c3246 !important;
-  color:white !important;
 }
 .mat-checkbox-inner-container {
   border-radius: 2px!important;
@@ -509,8 +505,8 @@ margin-right: 88px !important;}
 }
 
 .mat-header-row {
-  background:#3c3246 !important;
-  color:white !important;
+  background:#ffffff !important;
+  color:#000 !important;
 }
 
 .buttonyellow{

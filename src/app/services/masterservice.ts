@@ -11,14 +11,10 @@ export class MasterServices {
   constructor(private http: Http, private config: AppConfig) { }
   
   public getcategories() {
-   const  params = new HttpParams()
-    .set('page', '2')
-    .append('hitsPerPage', '10')
-    .set('sort', 'name');
     return this.http.get(this.config.APIUrl + this.config.categories, {
       params: {
         page: '0',
-        hitsPerPage: '100'
+        hitsPerPage: '1000'
       }}).map((response: any) => {
       return response.json();
     });

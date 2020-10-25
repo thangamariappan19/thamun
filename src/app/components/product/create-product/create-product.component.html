@@ -1,7 +1,7 @@
 <section id="content">
   <div class="page page-categories">
     <div class="pageheader">
-      <h2>Add Product</h2>
+      <!-- <h2>Add Product</h2> -->
       <div class="page-bar">
         <ul class="page-breadcrumb">
           <li>
@@ -225,31 +225,32 @@
                       </div>
                     </div>
                   </div>
+              
               </div>
               <div class="row">
-                <div class="col-md-4">
-                    <div class="form-group">
-                      <label class="col-md-4 control-label" for="usr_name">
-                        Select Color
-                      </label>
-                      <div class="col-md-8">
-                          <ng-multiselect-dropdown
-                            [placeholder]="'Select color'"
-                            formControlName="color"
-                            [data]="ColorData"
-                            [(ngModel)]="Color"
-                            [settings]="dropdownColor"
-                            (onSelect)="onItemSelect($event)"
-                            (onSelectAll)="onSelectAll($event)"
-                            [required]="requiredField"
-                            [ngClass]="setClass()"
-                            name="countrySelect"
-                          >
-                          </ng-multiselect-dropdown>
-                      
+                  <div class="col-md-4">
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="usr_name">
+                          Select Color
+                        </label>
+                        <div class="col-md-8">
+                            <ng-multiselect-dropdown
+                              [placeholder]="'Select color'"
+                              formControlName="color"
+                              [data]="ColorData"
+                              [(ngModel)]="Color"
+                              [settings]="dropdownColor"
+                              (onSelect)="onItemSelect($event)"
+                              (onSelectAll)="onSelectAll($event)"
+                              [required]="requiredField"
+                              [ngClass]="setClass()"
+                              name="countrySelect"
+                            >
+                            </ng-multiselect-dropdown>
+                        
+                        </div>
                       </div>
                     </div>
-                  </div>
                   <div class="col-md-4">
                     <div class="form-group">
                       <label class="col-md-4 control-label" for="usr_name">
@@ -289,7 +290,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-4">
+                  <!-- <div class="col-md-4">
                       <div class="form-group">
                         <label class="col-md-4 control-label" for="usr_name">
                           Select Size
@@ -307,85 +308,82 @@
                                   "
                                   class="flex-container  align-center multi-checkbox"
                                 >
-                                  <input
-                                    type="checkbox"
-                                    [formControl]="hobby"
-                                    (change)="
-                                      getSelectedHobbies(hobby, myhobbies[i].name)
-                                    "
-                                  />
-                                  {{ myhobbies[i].name }}
+                                <mat-checkbox class="example-margin" [formControl]="hobby"
+                                (change)="
+                                  getSelectedHobbies(hobby, myhobbies[i].name)
+                                ">{{ myhobbies[i].name }}</mat-checkbox>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-              </div>
-              <div class="row">
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label class="col-md-4 control-label" for="usr_name">
-                      Select Image
-                    </label>
-                    <div class="col-md-8">
-                   
-                        <div
-                          class="fileupload fileupload-new"
-                          data-provides="fileupload"
-                        >
-                          <!-- <div
-                            class="fileupload-new thumbnail"
-                            style="width: 106px;height: 113px;"
-                            id="previewimg"
-                          >
-                            <img
-                              src="{{ ProductImage }}"
-                              id="myfile"
-                              alt="image"
-                              style="background: #79838e;border-radius: 99px;border-radius: 69px"
-                            />
-                          </div> -->
-                          <!-- <div
-                            class="fileupload-preview fileupload-exists thumbnail"
-                            id="imagePreview"
-                            style="width: 150px;height: 139px;line-height: 20px; border-radius: 69px;display: none"
-                          ></div> -->
-                          <div>
-                            <button
-                              type="file"
-                              accept=".png, .jpg, .jpeg"
-                              (change)="onFileChange($event)"
-                              class="btn btn-custom btn-file upload-button"
-                              id="selectbtn"
-                            >
-                              <!-- <span class="fileupload-new">
-                          <i class="fa fa-paper-clip"></i> Upload Image</span
-                        >
-                        <span class="fileupload-exists" id="changeid">
-                          <i class="fa fa-undo"></i> Change</span
-                        > -->
-                              <input  style="width:180px"
-                                type="file"
-                                class="btn-light file-upload"
-                                id="changeid"
-                              />
-                            </button>
-                      
+                    </div> -->
+                    <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="col-md-4 control-label" for="usr_name">
+                            Select Image
+                          </label>
+                          <div class="col-md-8">
+                         
+                              <div
+                                class="fileupload fileupload-new"
+                                data-provides="fileupload"
+                              >
+                                <!-- <div
+                                  class="fileupload-new thumbnail"
+                                  style="width: 106px;height: 113px;"
+                                  id="previewimg"
+                                >
+                                  <img
+                                    src="{{ ProductImage }}"
+                                    id="myfile"
+                                    alt="image"
+                                    style="background: #79838e;border-radius: 99px;border-radius: 69px"
+                                  />
+                                </div> -->
+                                <!-- <div
+                                  class="fileupload-preview fileupload-exists thumbnail"
+                                  id="imagePreview"
+                                  style="width: 150px;height: 139px;line-height: 20px; border-radius: 69px;display: none"
+                                ></div> -->
+                                <div>
+                                  <button
+                                    type="file"
+                                    accept=".png, .jpg, .jpeg"
+                                    (change)="onFileChange($event)"
+                                    class="btn btn-custom btn-file upload-button"
+                                    id="selectbtn" style="  padding: 6px 4px;"
+                                  >
+                                    <!-- <span class="fileupload-new">
+                                <i class="fa fa-paper-clip"></i> Upload Image</span
+                              >
+                              <span class="fileupload-exists" id="changeid">
+                                <i class="fa fa-undo"></i> Change</span
+                              > -->
+                                    <input  style="width:180px"
+                                      type="file"
+                                      class="btn-light file-upload"
+                                      id="changeid"
+                                    />
+                                  </button>
+                            
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
+              </div>
+              <div class="row">
+           
+                <div class="col-md-12">
                     <div class="form-group">
-                      <label for="email" class="control-label col-lg-4"
+                      <label for="email" class=" col-md-1"
                         >Description
-                        <span class="require">*</span>
+                        <!-- <span class="require">*</span> -->
                       </label>
-                      <div class="col-lg-8">
-                          <textarea
+                      <div class="col-lg-11" style="padding: 0px 0px 0px 52px;" >
+                          <textarea style="margin: 0px 5px 0px -17px;"
                             formControlName="description"
                             maxlength="150"
                             [(ngModel)]="Description"
@@ -409,7 +407,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-4">
+                  <!-- <div class="col-md-4">
                       <div class="form-group">
                         <label for="email" class="control-label col-lg-4"
                           >Short Description
@@ -439,7 +437,7 @@
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
               </div>
               <div class="row">
                

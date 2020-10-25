@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , ViewChild} from '@angular/core';
 import { Router } from '@angular/router';
+import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { MasterServices } from '../../services/masterservice';
 @Component({
   selector: 'app-categorylist',
@@ -9,6 +10,10 @@ import { MasterServices } from '../../services/masterservice';
 export class CategorylistComponent implements OnInit {
   categoryData: any[] = [];
   customerList: any[] = [];
+  color = 'green';
+  displayedColumns: string[] = [ 'categoryCode', 'categoryName', 'depth', 'slug', 'active','action'];
+  dataSource = new MatTableDataSource();
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(
     private _masterService: MasterServices,
     private _router: Router
@@ -21,10 +26,10 @@ export class CategorylistComponent implements OnInit {
 private _categoryList() {
       this._masterService.getcategories()
           .subscribe(data => {
-            console.log(data)
               if (data) {
-                this.categoryData = data.data.content;
-            console.log(this.categoryData)
+                this.dataSource = new MatTableDataSource();
+                this.dataSource.data = data.data.content;
+                this.dataSource.paginator = this.paginator;
               }
           });
   }
@@ -41,7 +46,7 @@ Delete(id) {
     console.log(data)
       if (data) {
         this.categoryData = data.data.content;
-    console.log(this.categoryData)
+         console.log(this.categoryData)
       }
   });
 }

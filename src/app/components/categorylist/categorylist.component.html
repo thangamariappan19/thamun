@@ -17,6 +17,53 @@
       <br />
       <div class="tile-body p-0">
         <div class="table-responsive">
+            <div class="mat-elevation-z8">
+                <table class="table table-bordered" mat-table [dataSource]="dataSource" style="width:100%;">
+                    <ng-container matColumnDef="categoryCode">
+                        <th mat-header-cell *matHeaderCellDef>Category</th>
+                        <td mat-cell *matCellDef="let data"> {{data.categoryCode}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="categoryName">
+                        <th mat-header-cell *matHeaderCellDef>Category Name </th>
+                        <td mat-cell *matCellDef="let data"> {{data.descriptions[1]?.categoryName}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="depth">
+                        <th mat-header-cell *matHeaderCellDef> Depth </th>
+                        <td mat-cell *matCellDef="let data"> {{data.depth}} </td>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="slug">
+                      <th mat-header-cell *matHeaderCellDef>Slug </th>
+                      <td mat-cell *matCellDef="let data"> {{data.descriptions[1]?.slug}} </td>
+                  </ng-container>
+                    <ng-container matColumnDef="active">
+                        <th mat-header-cell *matHeaderCellDef>Status </th>
+                        <td mat-cell *matCellDef="let data"> {{data.active}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef> Action </th>
+                        <td mat-cell *matCellDef="let data">
+                            <a class="myIcon icon-success icon-ef-3 icon-ef-3b icon-color" data-toggle="modal"
+                                data-target="#UpdateModal" (click)="editdata(data)"><i
+                                    class="fa fa-edit"></i></a>
+                            <a class="myIcon icon-warning icon-ef-4 icon-ef-4a icon-color"
+                                (click)="viewdata(data,i)" data-toggle="modal" data-target="#myModalView"><i
+                                    class="fa fa-eye"></i></a>
+                        </td>
+                    </ng-container>
+
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </div>
+        </div>
+
+        <mat-paginator [pageSizeOptions]="[10, 20]"
+            showFirstLastButtons></mat-paginator>
+      </div>
+      <!-- <div class="tile-body p-0">
+        <div class="table-responsive">
           <table
             id="dt-cell-sellection"
             class="table"
@@ -56,7 +103,7 @@
           </table>
         </div>
        
-      </div>
+      </div> -->
     </section>
   </div>
 </section>

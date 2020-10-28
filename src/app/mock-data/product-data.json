@@ -1,0 +1,18 @@
+{
+    "sku":"1000",
+    "active":true,
+    "productType":"SINGLE",
+    "descriptions":[{
+    "productName":"Arm & Hammer Baking Soda No Scent Cleaning Powder 12 lb",
+    "slug":"cleaning-powder_en",
+    "language":{
+    "languageId":"en"
+    }
+    }],
+    "productAttributes":[],
+    "productImages":[{
+    "imageName":"xx.jpg",
+    "rank":1
+    }],
+    "categories":[]
+    }

@@ -7,4 +7,6 @@ export class AppConfig {
    
    public readonly categories = 'categories';
 
+   public readonly products = 'products';
+
 }

@@ -1,0 +1,177 @@
+{
+  "status": "OK",
+  "message": "SUCESSS",
+  "data": {
+    "content": [
+      {
+        "productId": "PROD_00006",
+        "sku": "1000",
+        "active": false,
+        "productType": "SINGLE",
+        "descriptions": [
+          {
+            "productDescriptionId": "PRDE_00006",
+            "productName": "Arm & Hammer Baking Soda No Scent Cleaning Powder 12 lb",
+            "slug": "cleaning-powder_en",
+            "language": {
+              "languageId": "en",
+              "code": null,
+              "name": null,
+              "active": false
+            }
+          }
+        ],
+        "productGroup": null,
+        "productImages": [
+          { "imageId": null, "imageName": null, "createDate": null, "rank": 0 }
+        ],
+        "productAttributes": [
+          {
+            "attributeId": "PRAT_00005",
+            "option": {
+              "productOptionId": "OPTI_00005",
+              "productOptionCode": "COLOR",
+              "productOptionType": "RADIO",
+              "productOptionDescriptions": [
+                {
+                  "optionDescriptionId": "OPDE_00006",
+                  "description": "COLOR",
+                  "name": "COLOR",
+                  "language": {
+                    "languageId": "en",
+                    "code": null,
+                    "name": null,
+                    "active": false
+                  }
+                }
+              ]
+            },
+            "optionValue": {
+              "productOptionValueId": "OPVA_00007",
+              "productOptionValCode": "WHITE",
+              "productOptValImage": "WHITE.png",
+              "productOptionValueDescriptions": [
+                {
+                  "productOptionValueDescriptionId": "OPVADE_00002",
+                  "description": "WHITE",
+                  "name": "WHITE",
+                  "title": "WHITE",
+                  "language": {
+                    "languageId": "en",
+                    "code": null,
+                    "name": null,
+                    "active": false
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "categories": [
+          {
+            "categoryId": "CATA_00002",
+            "categoryCode": "paint",
+            "depth": 1,
+            "active": true,
+            "parentId": null,
+            "categories": null,
+            "descriptions": null
+          }
+        ]
+      },
+      {
+        "productId": "PROD_00007",
+        "sku": "1000",
+        "active": false,
+        "productType": "SINGLE",
+        "descriptions": [
+          {
+            "productDescriptionId": "PRDE_00007",
+            "productName": "Arm & Hammer Baking Soda No Scent Cleaning Powder 12 lb",
+            "slug": "cleaning-powder_en",
+            "language": {
+              "languageId": "en",
+              "code": null,
+              "name": null,
+              "active": false
+            }
+          }
+        ],
+        "productGroup": null,
+        "productImages": [
+          { "imageId": null, "imageName": null, "createDate": null, "rank": 0 }
+        ],
+        "productAttributes": [
+          {
+            "attributeId": "PRAT_00005",
+            "option": {
+              "productOptionId": "OPTI_00005",
+              "productOptionCode": "COLOR",
+              "productOptionType": "RADIO",
+              "productOptionDescriptions": [
+                {
+                  "optionDescriptionId": "OPDE_00006",
+                  "description": "COLOR",
+                  "name": "COLOR",
+                  "language": {
+                    "languageId": "en",
+                    "code": null,
+                    "name": null,
+                    "active": false
+                  }
+                }
+              ]
+            },
+            "optionValue": {
+              "productOptionValueId": "OPVA_00007",
+              "productOptionValCode": "WHITE",
+              "productOptValImage": "WHITE.png",
+              "productOptionValueDescriptions": [
+                {
+                  "productOptionValueDescriptionId": "OPVADE_00002",
+                  "description": "WHITE",
+                  "name": "WHITE",
+                  "title": "WHITE",
+                  "language": {
+                    "languageId": "en",
+                    "code": null,
+                    "name": null,
+                    "active": false
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "categories": [
+          {
+            "categoryId": "CATA_00002",
+            "categoryCode": "paint",
+            "depth": 1,
+            "active": true,
+            "parentId": null,
+            "categories": null,
+            "descriptions": null
+          }
+        ]
+      }
+    ],
+    "pageable": {
+      "sort": { "sorted": false, "unsorted": true, "empty": true },
+      "pageNumber": 0,
+      "pageSize": 30,
+      "offset": 0,
+      "paged": true,
+      "unpaged": false
+    },
+    "totalPages": 1,
+    "totalElements": 2,
+    "last": true,
+    "sort": { "sorted": false, "unsorted": true, "empty": true },
+    "numberOfElements": 2,
+    "first": true,
+    "size": 30,
+    "number": 0,
+    "empty": false
+  }
+}

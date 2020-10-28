@@ -1,0 +1,1900 @@
+{
+  "status": "OK",
+  "message": "Success",
+  "data": [
+    {
+      "categoryId": "CATA_00001",
+      "categoryCode": "women",
+      "depth": 1,
+      "active": true,
+      "parentId": null,
+      "categories": [
+        {
+          "categoryId": "CATA_00002",
+          "categoryCode": "women-clothing",
+          "depth": 2,
+          "active": true,
+          "parentId": "CATA_00001",
+          "categories": [
+            {
+              "categoryId": "CATA_00003",
+              "categoryCode": "women-clothing-new-in",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00002",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00005",
+                  "categoryName": "New in",
+                  "slug": "women-clothing-new-in_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00006",
+                  "categoryName": "New in",
+                  "slug": "women-clothing-new-in_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00004",
+              "categoryCode": "women-clothing-abayas",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00002",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00007",
+                  "categoryName": "Abayas",
+                  "slug": "women-clothing-abayas_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00008",
+                  "categoryName": "Abayas",
+                  "slug": "women-clothing-abayas_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00005",
+              "categoryCode": "women-clothing-arabian-clothing",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00002",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00009",
+                  "categoryName": "Arabian clothing",
+                  "slug": "women-clothing-arabian-clothing_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00010",
+                  "categoryName": "Arabian clothing",
+                  "slug": "women-clothing-arabian-clothing_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00006",
+              "categoryCode": "women-clothing-cardigans-sweaters",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00002",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00011",
+                  "categoryName": "Cardigans & sweaters",
+                  "slug": "women-clothing-cardigans-sweaters_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00012",
+                  "categoryName": "Cardigans & sweaters",
+                  "slug": "women-clothing-cardigans-sweaters_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00007",
+              "categoryCode": "women-clothing-dresses",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00002",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00013",
+                  "categoryName": "Dresses",
+                  "slug": "women-clothing-dresses_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00014",
+                  "categoryName": "Dresses",
+                  "slug": "women-clothing-dresses_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00008",
+              "categoryCode": "women-clothing-hoodies-sweatshirts",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00002",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00015",
+                  "categoryName": "Hoodies & sweatshirts",
+                  "slug": "women-clothing-hoodies-sweatshirts_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00016",
+                  "categoryName": "Hoodies & sweatshirts",
+                  "slug": "women-clothing-hoodies-sweatshirts_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00009",
+              "categoryCode": "women-clothing-jackets-coats",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00002",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00017",
+                  "categoryName": "Jackets & coats",
+                  "slug": "women-clothing-jackets-coats_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00018",
+                  "categoryName": "Jackets & coats",
+                  "slug": "women-clothing-jackets-coats_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00010",
+              "categoryCode": "women-clothing-jeans",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00002",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00019",
+                  "categoryName": "Jeans",
+                  "slug": "women-clothing-jeans_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00020",
+                  "categoryName": "Jeans",
+                  "slug": "women-clothing-jeans_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00011",
+              "categoryCode": "women-clothing-jumpsuits-playsuits",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00002",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00021",
+                  "categoryName": "Jumpsuits & playsuits",
+                  "slug": "women-clothing-jumpsuits-playsuits_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00022",
+                  "categoryName": "Jumpsuits & playsuits",
+                  "slug": "women-clothing-jumpsuits-playsuits_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00012",
+              "categoryCode": "women-clothing-kimonos-capes",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00002",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00023",
+                  "categoryName": "Kimonos & capes",
+                  "slug": "women-clothing-kimonos-capes_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00024",
+                  "categoryName": "Kimonos & capes",
+                  "slug": "women-clothing-kimonos-capes_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00013",
+              "categoryCode": "women-clothing-lingeriesocks-hosierysets",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00002",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00025",
+                  "categoryName": "LingerieSocks & hosierySets",
+                  "slug": "women-clothing-lingeriesocks-hosierysets_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00026",
+                  "categoryName": "LingerieSocks & hosierySets",
+                  "slug": "women-clothing-lingeriesocks-hosierysets_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00014",
+              "categoryCode": "women-clothing-multipacks",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00002",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00027",
+                  "categoryName": "Multipacks",
+                  "slug": "women-clothing-multipacks_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00028",
+                  "categoryName": "Multipacks",
+                  "slug": "women-clothing-multipacks_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00015",
+              "categoryCode": "women-clothing-nightwear",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00002",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00029",
+                  "categoryName": "Nightwear",
+                  "slug": "women-clothing-nightwear_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00030",
+                  "categoryName": "Nightwear",
+                  "slug": "women-clothing-nightwear_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00016",
+              "categoryCode": "women-clothing-pants-leggings",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00002",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00031",
+                  "categoryName": "Pants & leggings",
+                  "slug": "women-clothing-pants-leggings_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00032",
+                  "categoryName": "Pants & leggings",
+                  "slug": "women-clothing-pants-leggings_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00017",
+              "categoryCode": "women-clothing-shorts",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00002",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00033",
+                  "categoryName": "Shorts",
+                  "slug": "women-clothing-shorts_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00034",
+                  "categoryName": "Shorts",
+                  "slug": "women-clothing-shorts_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00018",
+              "categoryCode": "women-clothing-skirts",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00002",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00035",
+                  "categoryName": "Skirts",
+                  "slug": "women-clothing-skirts_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00036",
+                  "categoryName": "Skirts",
+                  "slug": "women-clothing-skirts_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00019",
+              "categoryCode": "women-clothing-sportswear",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00002",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00037",
+                  "categoryName": "Sportswear",
+                  "slug": "women-clothing-sportswear_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00038",
+                  "categoryName": "Sportswear",
+                  "slug": "women-clothing-sportswear_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00020",
+              "categoryCode": "women-clothing-swimwear-beachwear",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00002",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00039",
+                  "categoryName": "Swimwear & beachwear",
+                  "slug": "women-clothing-swimwear-beachwear_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00040",
+                  "categoryName": "Swimwear & beachwear",
+                  "slug": "women-clothing-swimwear-beachwear_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00021",
+              "categoryCode": "women-clothing-topst-shirts-vests",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00002",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00041",
+                  "categoryName": "TopsT-shirts & vests",
+                  "slug": "women-clothing-topst-shirts-vests_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00042",
+                  "categoryName": "TopsT-shirts & vests",
+                  "slug": "women-clothing-topst-shirts-vests_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00022",
+              "categoryCode": "women-clothing-everyday-essentials",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00002",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00043",
+                  "categoryName": "Everyday essentials",
+                  "slug": "women-clothing-everyday-essentials_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00044",
+                  "categoryName": "Everyday essentials",
+                  "slug": "women-clothing-everyday-essentials_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00023",
+              "categoryCode": "women-clothing-indian-clothing",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00002",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00045",
+                  "categoryName": "Indian clothing",
+                  "slug": "women-clothing-indian-clothing_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00046",
+                  "categoryName": "Indian clothing",
+                  "slug": "women-clothing-indian-clothing_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            }
+          ],
+          "descriptions": [
+            {
+              "categoryDescriptionId": "CADE_00003",
+              "categoryName": "Clothing",
+              "slug": "women-clothing_ar",
+              "language": {
+                "languageId": "ar",
+                "code": "ar",
+                "name": "Arabic",
+                "active": true
+              }
+            },
+            {
+              "categoryDescriptionId": "CADE_00004",
+              "categoryName": "Clothing",
+              "slug": "women-clothing_en",
+              "language": {
+                "languageId": "en",
+                "code": "en",
+                "name": "English",
+                "active": true
+              }
+            }
+          ]
+        }
+      ],
+      "descriptions": [
+        {
+          "categoryDescriptionId": "CADE_00001",
+          "categoryName": "Women",
+          "slug": "women_ar",
+          "language": {
+            "languageId": "ar",
+            "code": "ar",
+            "name": "Arabic",
+            "active": true
+          }
+        },
+        {
+          "categoryDescriptionId": "CADE_00002",
+          "categoryName": "Women",
+          "slug": "women_en",
+          "language": {
+            "languageId": "en",
+            "code": "en",
+            "name": "English",
+            "active": true
+          }
+        }
+      ]
+    },
+    {
+      "categoryId": "CATA_00024",
+      "categoryCode": "men",
+      "depth": 1,
+      "active": true,
+      "parentId": null,
+      "categories": [
+        {
+          "categoryId": "CATA_00025",
+          "categoryCode": "men-clothing",
+          "depth": 2,
+          "active": true,
+          "parentId": "CATA_00024",
+          "categories": [
+            {
+              "categoryId": "CATA_00026",
+              "categoryCode": "men-clothing-new-in",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00025",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00051",
+                  "categoryName": "New in",
+                  "slug": "men-clothing-new-in_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00052",
+                  "categoryName": "New in",
+                  "slug": "men-clothing-new-in_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00027",
+              "categoryCode": "men-clothing-cardigans-sweaters",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00025",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00053",
+                  "categoryName": "Cardigans & sweaters",
+                  "slug": "men-clothing-cardigans-sweaters_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00054",
+                  "categoryName": "Cardigans & sweaters",
+                  "slug": "men-clothing-cardigans-sweaters_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00028",
+              "categoryCode": "men-clothing-hoodies-sweatshirts",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00025",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00055",
+                  "categoryName": "Hoodies & sweatshirts",
+                  "slug": "men-clothing-hoodies-sweatshirts_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00056",
+                  "categoryName": "Hoodies & sweatshirts",
+                  "slug": "men-clothing-hoodies-sweatshirts_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00029",
+              "categoryCode": "men-clothing-jackets-coats",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00025",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00057",
+                  "categoryName": "Jackets & coats",
+                  "slug": "men-clothing-jackets-coats_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00058",
+                  "categoryName": "Jackets & coats",
+                  "slug": "men-clothing-jackets-coats_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00030",
+              "categoryCode": "men-clothing-jeans",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00025",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00059",
+                  "categoryName": "Jeans",
+                  "slug": "men-clothing-jeans_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00060",
+                  "categoryName": "Jeans",
+                  "slug": "men-clothing-jeans_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00031",
+              "categoryCode": "men-clothing-multipacks",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00025",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00061",
+                  "categoryName": "Multipacks",
+                  "slug": "men-clothing-multipacks_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00062",
+                  "categoryName": "Multipacks",
+                  "slug": "men-clothing-multipacks_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00032",
+              "categoryCode": "men-clothing-nightwear",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00025",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00063",
+                  "categoryName": "Nightwear",
+                  "slug": "men-clothing-nightwear_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00064",
+                  "categoryName": "Nightwear",
+                  "slug": "men-clothing-nightwear_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00033",
+              "categoryCode": "men-clothing-pants-chinos",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00025",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00065",
+                  "categoryName": "Pants & chinos",
+                  "slug": "men-clothing-pants-chinos_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00066",
+                  "categoryName": "Pants & chinos",
+                  "slug": "men-clothing-pants-chinos_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00034",
+              "categoryCode": "men-clothing-polo-shirts",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00025",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00067",
+                  "categoryName": "Polo shirts",
+                  "slug": "men-clothing-polo-shirts_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00068",
+                  "categoryName": "Polo shirts",
+                  "slug": "men-clothing-polo-shirts_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00035",
+              "categoryCode": "men-clothing-plus-size",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00025",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00069",
+                  "categoryName": "Plus size",
+                  "slug": "men-clothing-plus-size_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00070",
+                  "categoryName": "Plus size",
+                  "slug": "men-clothing-plus-size_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00036",
+              "categoryCode": "men-clothing-shirts",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00025",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00071",
+                  "categoryName": "Shirts",
+                  "slug": "men-clothing-shirts_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00072",
+                  "categoryName": "Shirts",
+                  "slug": "men-clothing-shirts_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00037",
+              "categoryCode": "men-clothing-shorts",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00025",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00073",
+                  "categoryName": "Shorts",
+                  "slug": "men-clothing-shorts_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00074",
+                  "categoryName": "Shorts",
+                  "slug": "men-clothing-shorts_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00038",
+              "categoryCode": "men-clothing-sportswear",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00025",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00075",
+                  "categoryName": "Sportswear",
+                  "slug": "men-clothing-sportswear_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00076",
+                  "categoryName": "Sportswear",
+                  "slug": "men-clothing-sportswear_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00039",
+              "categoryCode": "men-clothing-suits",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00025",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00077",
+                  "categoryName": "Suits",
+                  "slug": "men-clothing-suits_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00078",
+                  "categoryName": "Suits",
+                  "slug": "men-clothing-suits_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00040",
+              "categoryCode": "men-clothing-swimwear",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00025",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00079",
+                  "categoryName": "Swimwear",
+                  "slug": "men-clothing-swimwear_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00080",
+                  "categoryName": "Swimwear",
+                  "slug": "men-clothing-swimwear_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00041",
+              "categoryCode": "men-clothing-t-shirts-vests",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00025",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00081",
+                  "categoryName": "T-shirts & vests",
+                  "slug": "men-clothing-t-shirts-vests_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00082",
+                  "categoryName": "T-shirts & vests",
+                  "slug": "men-clothing-t-shirts-vests_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00042",
+              "categoryCode": "men-clothing-underwear-socks",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00025",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00083",
+                  "categoryName": "Underwear & socks",
+                  "slug": "men-clothing-underwear-socks_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00084",
+                  "categoryName": "Underwear & socks",
+                  "slug": "men-clothing-underwear-socks_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            }
+          ],
+          "descriptions": [
+            {
+              "categoryDescriptionId": "CADE_00049",
+              "categoryName": "Clothing",
+              "slug": "men-clothing_ar",
+              "language": {
+                "languageId": "ar",
+                "code": "ar",
+                "name": "Arabic",
+                "active": true
+              }
+            },
+            {
+              "categoryDescriptionId": "CADE_00050",
+              "categoryName": "Clothing",
+              "slug": "men-clothing_en",
+              "language": {
+                "languageId": "en",
+                "code": "en",
+                "name": "English",
+                "active": true
+              }
+            }
+          ]
+        }
+      ],
+      "descriptions": [
+        {
+          "categoryDescriptionId": "CADE_00047",
+          "categoryName": "Men",
+          "slug": "men_ar",
+          "language": {
+            "languageId": "ar",
+            "code": "ar",
+            "name": "Arabic",
+            "active": true
+          }
+        },
+        {
+          "categoryDescriptionId": "CADE_00048",
+          "categoryName": "Men",
+          "slug": "men_en",
+          "language": {
+            "languageId": "en",
+            "code": "en",
+            "name": "English",
+            "active": true
+          }
+        }
+      ]
+    },
+    {
+      "categoryId": "CATA_00043",
+      "categoryCode": "kids",
+      "depth": 1,
+      "active": true,
+      "parentId": null,
+      "categories": [
+        {
+          "categoryId": "CATA_00044",
+          "categoryCode": "kids-clothing",
+          "depth": 2,
+          "active": true,
+          "parentId": "CATA_00043",
+          "categories": [
+            {
+              "categoryId": "CATA_00045",
+              "categoryCode": "kids-clothing-new-in",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00044",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00089",
+                  "categoryName": "New in",
+                  "slug": "kids-clothing-new-in_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00090",
+                  "categoryName": "New in",
+                  "slug": "kids-clothing-new-in_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00046",
+              "categoryCode": "kids-clothing-bodysuits-rompers",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00044",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00091",
+                  "categoryName": "Bodysuits & rompers",
+                  "slug": "kids-clothing-bodysuits-rompers_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00092",
+                  "categoryName": "Bodysuits & rompers",
+                  "slug": "kids-clothing-bodysuits-rompers_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00047",
+              "categoryCode": "kids-clothing-cardigans-sweaters",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00044",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00093",
+                  "categoryName": "Cardigans & sweaters",
+                  "slug": "kids-clothing-cardigans-sweaters_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00094",
+                  "categoryName": "Cardigans & sweaters",
+                  "slug": "kids-clothing-cardigans-sweaters_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00048",
+              "categoryCode": "kids-clothing-hoodies-sweatshirts",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00044",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00095",
+                  "categoryName": "Hoodies & sweatshirts",
+                  "slug": "kids-clothing-hoodies-sweatshirts_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00096",
+                  "categoryName": "Hoodies & sweatshirts",
+                  "slug": "kids-clothing-hoodies-sweatshirts_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00049",
+              "categoryCode": "kids-clothing-jackets-coats",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00044",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00097",
+                  "categoryName": "Jackets & coats",
+                  "slug": "kids-clothing-jackets-coats_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00098",
+                  "categoryName": "Jackets & coats",
+                  "slug": "kids-clothing-jackets-coats_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00050",
+              "categoryCode": "kids-clothing-jeans",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00044",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00099",
+                  "categoryName": "Jeans",
+                  "slug": "kids-clothing-jeans_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00100",
+                  "categoryName": "Jeans",
+                  "slug": "kids-clothing-jeans_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00051",
+              "categoryCode": "kids-clothing-multipacks",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00044",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00101",
+                  "categoryName": "Multipacks",
+                  "slug": "kids-clothing-multipacks_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00102",
+                  "categoryName": "Multipacks",
+                  "slug": "kids-clothing-multipacks_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00052",
+              "categoryCode": "kids-clothing-nightwear",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00044",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00103",
+                  "categoryName": "Nightwear",
+                  "slug": "kids-clothing-nightwear_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00104",
+                  "categoryName": "Nightwear",
+                  "slug": "kids-clothing-nightwear_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00053",
+              "categoryCode": "kids-clothing-polo-shirts",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00044",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00105",
+                  "categoryName": "Polo shirts",
+                  "slug": "kids-clothing-polo-shirts_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00106",
+                  "categoryName": "Polo shirts",
+                  "slug": "kids-clothing-polo-shirts_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00054",
+              "categoryCode": "kids-clothing-shirts",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00044",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00107",
+                  "categoryName": "Shirts",
+                  "slug": "kids-clothing-shirts_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00108",
+                  "categoryName": "Shirts",
+                  "slug": "kids-clothing-shirts_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00055",
+              "categoryCode": "kids-clothing-sweatpants-trousers",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00044",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00109",
+                  "categoryName": "Sweatpants & trousers",
+                  "slug": "kids-clothing-sweatpants-trousers_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00110",
+                  "categoryName": "Sweatpants & trousers",
+                  "slug": "kids-clothing-sweatpants-trousers_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00056",
+              "categoryCode": "kids-clothing-swimwear",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00044",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00111",
+                  "categoryName": "Swimwear",
+                  "slug": "kids-clothing-swimwear_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00112",
+                  "categoryName": "Swimwear",
+                  "slug": "kids-clothing-swimwear_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00057",
+              "categoryCode": "kids-clothing-tracksuits-sets",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00044",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00113",
+                  "categoryName": "Tracksuits & sets",
+                  "slug": "kids-clothing-tracksuits-sets_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00114",
+                  "categoryName": "Tracksuits & sets",
+                  "slug": "kids-clothing-tracksuits-sets_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00058",
+              "categoryCode": "kids-clothing-t-shirts-vests",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00044",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00115",
+                  "categoryName": "T-shirts & vests",
+                  "slug": "kids-clothing-t-shirts-vests_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00116",
+                  "categoryName": "T-shirts & vests",
+                  "slug": "kids-clothing-t-shirts-vests_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            },
+            {
+              "categoryId": "CATA_00059",
+              "categoryCode": "kids-clothing-underwear-socks",
+              "depth": 3,
+              "active": true,
+              "parentId": "CATA_00044",
+              "categories": [],
+              "descriptions": [
+                {
+                  "categoryDescriptionId": "CADE_00117",
+                  "categoryName": "Underwear & socks",
+                  "slug": "kids-clothing-underwear-socks_ar",
+                  "language": {
+                    "languageId": "ar",
+                    "code": "ar",
+                    "name": "Arabic",
+                    "active": true
+                  }
+                },
+                {
+                  "categoryDescriptionId": "CADE_00118",
+                  "categoryName": "Underwear & socks",
+                  "slug": "kids-clothing-underwear-socks_en",
+                  "language": {
+                    "languageId": "en",
+                    "code": "en",
+                    "name": "English",
+                    "active": true
+                  }
+                }
+              ]
+            }
+          ],
+          "descriptions": [
+            {
+              "categoryDescriptionId": "CADE_00087",
+              "categoryName": "Clothing",
+              "slug": "kids-clothing_ar",
+              "language": {
+                "languageId": "ar",
+                "code": "ar",
+                "name": "Arabic",
+                "active": true
+              }
+            },
+            {
+              "categoryDescriptionId": "CADE_00088",
+              "categoryName": "Clothing",
+              "slug": "kids-clothing_en",
+              "language": {
+                "languageId": "en",
+                "code": "en",
+                "name": "English",
+                "active": true
+              }
+            }
+          ]
+        }
+      ],
+      "descriptions": [
+        {
+          "categoryDescriptionId": "CADE_00085",
+          "categoryName": "Kids",
+          "slug": "kids_ar",
+          "language": {
+            "languageId": "ar",
+            "code": "ar",
+            "name": "Arabic",
+            "active": true
+          }
+        },
+        {
+          "categoryDescriptionId": "CADE_00086",
+          "categoryName": "Kids",
+          "slug": "kids_en",
+          "language": {
+            "languageId": "en",
+            "code": "en",
+            "name": "English",
+            "active": true
+          }
+        }
+      ]
+    }
+  ]
+}

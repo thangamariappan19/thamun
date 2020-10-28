@@ -24,7 +24,7 @@
           <div class="tile-body">
             <form
               class="form-horizontal"
-              [formGroup]="playerForm"
+              [formGroup]="productForm"
               (ngSubmit)="saverecord()"
             >
               <div class="row">
@@ -42,19 +42,7 @@
                         name="PlayerName"
                         placeholder="ProductID"
                         formControlName="productID"
-                        [ngClass]="{
-                          'is-invalid': submitted && f.productID.errors
-                        }"
                       />
-
-                      <div
-                        *ngIf="submitted && f.productID.errors"
-                        class="invalid-feedback"
-                      >
-                        <div *ngIf="f.productID.errors.required">
-                          productID is Required
-                        </div>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -109,14 +97,6 @@
                             name="countrySelect"
                           >
                           </ng-multiselect-dropdown>
-                        <div
-                          *ngIf="submitted && f.category.errors"
-                          class="invalid-feedback"
-                        >
-                          <div *ngIf="f.category.errors.required">
-                            Category is required
-                          </div>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -198,9 +178,6 @@
                             [(ngModel)]="Unit"
                             formControlName="unit"
                             class="form-control"
-                            [ngClass]="{
-                              'is-invalid': submitted && f.unit.errors
-                            }"
                             autocomplete="off"
                           >
                             <option value="undefined" disabled selected
@@ -214,14 +191,6 @@
                             >
                           </select>
                       
-                        <div
-                          *ngIf="submitted && f.unit.errors"
-                          class="invalid-feedback"
-                        >
-                          <div *ngIf="f.unit.errors.required">
-                            unit is required
-                          </div>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -263,9 +232,7 @@
                             [(ngModel)]="Status"
                             formControlName="status"
                             class="form-control"
-                            [ngClass]="{
-                              'is-invalid': submitted && f.status.errors
-                            }"
+                      
                             autocomplete="off"
                           >
                             <option value="undefined" disabled selected
@@ -278,15 +245,7 @@
                               {{ data.status }}</option
                             >
                           </select>
-                        
-                        <div
-                          *ngIf="submitted && f.status.errors"
-                          class="invalid-feedback"
-                        >
-                          <div *ngIf="f.status.errors.required">
-                            status is required
-                          </div>
-                        </div>
+                          
                       </div>
                     </div>
                   </div>
@@ -325,51 +284,8 @@
                             Select Image
                           </label>
                           <div class="col-md-8">
-                         
-                              <div
-                                class="fileupload fileupload-new"
-                                data-provides="fileupload"
-                              >
-                                <!-- <div
-                                  class="fileupload-new thumbnail"
-                                  style="width: 106px;height: 113px;"
-                                  id="previewimg"
-                                >
-                                  <img
-                                    src="{{ ProductImage }}"
-                                    id="myfile"
-                                    alt="image"
-                                    style="background: #79838e;border-radius: 99px;border-radius: 69px"
-                                  />
-                                </div> -->
-                                <!-- <div
-                                  class="fileupload-preview fileupload-exists thumbnail"
-                                  id="imagePreview"
-                                  style="width: 150px;height: 139px;line-height: 20px; border-radius: 69px;display: none"
-                                ></div> -->
-                                <div>
-                                  <button
-                                    type="file"
-                                    accept=".png, .jpg, .jpeg"
-                                    (change)="onFileChange($event)"
-                                    class="btn btn-custom btn-file upload-button"
-                                    id="selectbtn" style="  padding: 6px 4px;"
-                                  >
-                                    <!-- <span class="fileupload-new">
-                                <i class="fa fa-paper-clip"></i> Upload Image</span
-                              >
-                              <span class="fileupload-exists" id="changeid">
-                                <i class="fa fa-undo"></i> Change</span
-                              > -->
-                                    <input  style="width:180px"
-                                      type="file"
-                                      class="btn-light file-upload"
-                                      id="changeid"
-                                    />
-                                  </button>
-                            
-                              </div>
-                            </div>
+                            <!-- <img *ngFor='let url of urls'  [src]="url" height="200"> <br/> -->
+                            <input   class="form-control" type='file' (change)="onSelectFile($event)" multiple>
                           </div>
                         </div>
                       </div>
@@ -401,7 +317,7 @@
                           class="invalid-feedback"
                         >
                           <div *ngIf="f.description.errors.required">
-                            Address is required
+                            Description is required
                           </div>
                         </div>
                       </div>
@@ -444,7 +360,7 @@
               </div>
               <div class="form-group btnSize">
                 <button type="submit" class="btn btn-success b-0 pull-right">
-                  Submit
+                  {{buttontext}}
                 </button>
                 <button
                   class="btn btn-danger pull-right modButAli"

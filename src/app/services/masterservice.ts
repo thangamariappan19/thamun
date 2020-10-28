@@ -10,17 +10,28 @@ import 'rxjs/add/operator/catch';
 export class MasterServices {
   constructor(private http: Http, private config: AppConfig) { }
   
-  public getcategories() {
-    return this.http.get(this.config.APIUrl + this.config.categories, {
-      params: {
-        page: '0',
-        hitsPerPage: '1000'
-      }}).map((response: any) => {
+  public getcategories(params: any = {}) {
+    return this.http.get(this.config.APIUrl + this.config.categories, { params }).map((response: any) => {
       return response.json();
     });
   }
+
+  public getProducts() {
+    return this.http.get(this.config.APIUrl + this.config.products).map((response: any) => {
+      return response.json();
+    });
+  }
+
   public addCategories(data: any) {
     return this.http.post(`${this.config.APIUrl}${this.config.categories}`, data, null)
+      .map(res => {
+        return res.json();
+      });
+  }
+
+
+  public addProducts(data: any) {
+    return this.http.post(`${this.config.APIUrl}${this.config.products}`, data, null)
       .map(res => {
         return res.json();
       });

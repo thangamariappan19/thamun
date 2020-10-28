@@ -1,11 +1,10 @@
-import { Component, OnInit ,HostBinding} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl, FormArray } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
-import { ColorEvent } from 'ngx-color';
 import { Ng2ImgMaxService } from 'ng2-img-max';
-import { isNgTemplate } from '@angular/compiler';
 import * as _ from "lodash";
+import { MasterServices } from '../../../services/masterservice';
 declare var jquery: any;
 declare var $: any;
 
@@ -16,6 +15,9 @@ var google: any;
   styleUrls: ['./create-product.component.scss']
 })
 export class CreateProductComponent implements OnInit {
+  buttontext = 'Save';
+  myFiles: string [] = [];
+  urls = [];
   imagePreview:any;
   Imageupload: any
   ProductID:string;
@@ -29,12 +31,11 @@ export class CreateProductComponent implements OnInit {
      Discount: string;
   Unit:string;
    Status: string;
-   playerForm: FormGroup;
+   productForm: FormGroup;
   submitted = false;
   ProductListData: any = [];
   productData: any = [];
   Editdata: any = [];
-  buttontext = 'Save';
   category:any;
   Imagefile:any;
   Color:any;
@@ -146,6 +147,7 @@ export class CreateProductComponent implements OnInit {
     private router: Router,
     private sanitizer: DomSanitizer,
     private ng2ImgMax: Ng2ImgMaxService,
+    private _masterService:MasterServices,
   ) {
  
   }
@@ -173,20 +175,20 @@ export class CreateProductComponent implements OnInit {
     this.setStatus();
     this.category = JSON.parse(localStorage.getItem('CategoryData'));
     console.log(this.category)
-    this.playerForm = this.formBuilder.group({
+    this.productForm = this.formBuilder.group({
       productID: ['',],
       productName: ['', Validators.required],
-      description: ['', Validators.required],
-      shortDescription: ['', Validators.required],
-      category: ['', Validators.required],
-      price: ['', Validators.required],
-      discount: ['', Validators.required],
-      unit: ['', Validators.required],
-      status: ['', Validators.required],
+      description: [''],
+      shortDescription: ['',],
+      category: [''],
+      price: ['',],
+      discount: ['',],
+      unit: ['',],
+      status: ['',],
       color:[''],
       hobbies: this.createHobbies(this.myhobbies)
   });
-  this.playerForm.reset();
+  this.productForm.reset();
     this.Editdata = JSON.parse(localStorage.getItem('EditProductdata'));
     this.i = localStorage.getItem('i');
     this.productData = JSON.parse(localStorage.getItem('ProductListData'));
@@ -195,7 +197,7 @@ export class CreateProductComponent implements OnInit {
       this.Updatedata(this.Editdata);
     } else {
       this.buttontext = 'Save';
-      this.playerForm.reset();
+      this.productForm.reset();
     }
   }
   createHobbies(hobbiesInputs) {
@@ -206,7 +208,7 @@ export class CreateProductComponent implements OnInit {
   }
   getSelectedHobbies() {
     this.selectedHobbiesNames = _.map(
-      this.playerForm.controls.hobbies["controls"],
+      this.productForm.controls.hobbies["controls"],
       (hobby, i) => {
         return hobby.value && this.myhobbies[i].value;
       }
@@ -225,42 +227,36 @@ export class CreateProductComponent implements OnInit {
     );
   }
   
-  get f() { return this.playerForm.controls; }
+  get f() { return this.productForm.controls; }
   saverecord() {
     this.submitted = true;
     // stop here if form is invalid
-    if (this.playerForm.invalid) {
+    if (this.productForm.invalid) {
       return;
     } else {
       if (this.buttontext === 'Save') {
-        
         const data = {
-          ProductID: this.ProductID,
-          ProductName: this.ProductName,
-          Description: this.Description,
-          ShortDescription: this.ShortDescription,
-          Category: this.Category,
-          Price: this.Price,
-          Discount: this.Discount,
-          Unit: this.Unit,
-          Color:this.Color,
-          Status: this.Status,
-          ImageFile:this.ImageFile,
-          CreatedDate: new Date(),
-          ProductImage:this.ProductImage,
-          SIze:this.playerForm.get('hobbies').value,
-
+          descriptions: [{
+            productName: this.productForm.get('productName').value,
+            slug: this.productForm.get('productName').value.replace(/\s/g, '').toLowerCase(),
+            language: {
+               languageId: 'en'
+              }
+          }],
+          productAttributes: [],
+          productImages:[{
+            imageName: this.myFiles,
+            }],
+            categories:[],
         };
+        debugger;
         console.log(data)
-        this.ProductListData.push(data);
-        if (this.productData != null) {
-          this.productData.push(data);
-          localStorage.setItem('ProductListData', JSON.stringify(this.productData));
-          this.router.navigate(['/product-list']);
-        } else {
-          localStorage.setItem('ProductListData', JSON.stringify(this.ProductListData));
-          this.router.navigate(['/product-list']);
-        }
+        this._masterService.addProducts(data)
+        .subscribe((data: any) => {
+            if (data.status === 'OK') {
+              this.router.navigate(['/product-list']);
+            }
+        });
 
       } else {
         const data = {
@@ -276,7 +272,7 @@ export class CreateProductComponent implements OnInit {
           Color: this.Color,
           CreatedDate: this.Editdata.CreatedDate,
           ProductImage: this.ProductImage,
-          SIze:this.playerForm.get('hobbies').value,
+          SIze:this.productForm.get('hobbies').value,
         };
         console.log(data)
         if (this.productData != null) {
@@ -305,7 +301,7 @@ export class CreateProductComponent implements OnInit {
          this. Status=Editdata.Status,
          this.Color= Editdata.Color,
          this.ProductImage = Editdata.ProductImage,
-         this.playerForm.patchValue({hobbies: Editdata.SIze });
+         this.productForm.patchValue({hobbies: Editdata.SIze });
         
       //   this.item.checked=Editdata.Size,
          
@@ -389,11 +385,6 @@ onFileChange(fileInput: any) {
         let reader = new FileReader();
         this.ng2ImgMax.compress([fileInput.target.files[0]], 0.3).subscribe(
           result => {
-            debugger;
-       //     $('#removeid').css({ "display": "block" });
-            // $('#changeid').css({ "display": "block" });   
-            //$('#imagePreview').css({ "display": "block" });
-          //  $('#previewimg').css({ "display": "none" });
             this.getImagePreview(result);
           },
           error => {
@@ -401,31 +392,32 @@ onFileChange(fileInput: any) {
           }
         );
       }
-      else {
-
-       // this.alertService.error('Only jpg/jpeg and png files are allowed!', true);
-        // $('.alert').css({ "display": "block" });
-        // setTimeout(function () { $('.alert').css({ "display": "none" }); }, 3000);
-        // $('#removeid').css({ "display": "none" });
-        // // $('#changeid').css({ "display": "none" });   
-        // $('#imagePreview').css({ "display": "none" });
-        // $('#previewimg').css({ "display": "block" });
-        // $('#selectbtn').css({ "display": "block" });
-        return false;
-
-      }
 
     }
-    else {
-      //Error Img NULL
-    }
   }
-  else {
- //   this.alertService.error('Please upload a smaller image, max size is 2 MB', true);
-    $('.alert').css({ "disgplay": "block" });
-    setTimeout(function () { $('.alert').css({ "display": "none" }); }, 3000);
-  }
+
 }
 
+
+
+// latest code for images
+
+onSelectFile(event) {
+  if (event.target.files && event.target.files[0]) {
+      const filesAmount = event.target.files.length;
+      console.log(filesAmount);
+      for (let i = 0; i < filesAmount; i++) {
+              const reader = new FileReader();
+
+              reader.onload = (event:any) => {
+                 this.urls.push(event.target.result); 
+                 console.log(this.urls);
+              },
+              this.myFiles.push(event.target.files[i].name);
+              console.log(this.myFiles);
+              reader.readAsDataURL(event.target.files[i]);
+      }
+  }
+}
 
 }

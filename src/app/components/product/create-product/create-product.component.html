@@ -16,199 +16,82 @@
         </ul>
       </div>
     </div>
-    <!-- row -->
-    <div class="row">
-      <div class="col-md-12">
-        <!-- tile -->
-        <section class="tile tile-simple">
-          <div class="tile-body">
-            <form
-              class="form-horizontal"
-              [formGroup]="productForm"
-              (ngSubmit)="saverecord()"
-            >
-              <div class="row">
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label class="col-md-4 control-label" for="Palyer Name">
-                      ID
-                      <span class="require">*</span>
-                    </label>
-                    <div class="col-md-8">
-                      <input
-                        type="text"
-                        class="form-control"
-                        [(ngModel)]="ProductID"
-                        name="PlayerName"
-                        placeholder="ProductID"
-                        formControlName="productID"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label class="col-md-4 control-label" for="Palyer Name">
-                     Name
-                      <span class="require">*</span>
-                    </label>
-                    <div class="col-md-8">
-                        <input
-                          type="text"
-                          class="form-control"
-                          [(ngModel)]="ProductName"
-                          name="ProductName"
-                          placeholder="Product Name"
-                          [ngClass]="{
-                            'is-invalid': submitted && f.productName.errors
-                          }"
-                          formControlName="productName"
-                        />
-                    
-                      <div
-                        *ngIf="submitted && f.productName.errors"
-                        class="invalid-feedback"
-                      >
-                        <div *ngIf="f.productName.errors.required">
-                          ProductName is Required
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                      <label class="col-md-4 control-label" for="usr_name">
-                        Category
-                        <span class="require">*</span>
-                      </label>
-  
-                      <div class="col-md-8">
-                          <ng-multiselect-dropdown
-                            [placeholder]="'Select category'"
-                            formControlName="category"
-                            [data]="category"
-                            [(ngModel)]="Category"
-                            [settings]="dropdownSettings"
-                            (onSelect)="onItemSelect($event)"
-                            (onSelectAll)="onSelectAll($event)"
-                            [required]="requiredField"
-                            [ngClass]="setClass()"
-                            name="countrySelect"
-                          >
-                          </ng-multiselect-dropdown>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-              <div class="row">
-              
-              
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label class="col-md-4 control-label" for="Palyer Name">
-                      Price
-                      <span class="require">*</span>
-                    </label>
-                    <div class="col-md-8">
-               
-                        <input
-                          type="text"
-                          class="form-control"
-                          [(ngModel)]="Price"
-                          name="price"
-                          placeholder="price"
-                          [ngClass]="{
-                            'is-invalid': submitted && f.price.errors
-                          }"
-                          formControlName="price"
-                        />
-                    
-                      <div
-                        *ngIf="submitted && f.price.errors"
-                        class="invalid-feedback"
-                      >
-                        <div *ngIf="f.price.errors.required">
-                          price is Required
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
+    
+    <mat-tab-group>
+      <mat-tab label="Add Product"> 
+            <div class="row">
+        <div class="col-md-12">
+          <!-- tile -->
+          <section class="tile tile-simple">
+            <div class="tile-body">
+              <form
+                class="form-horizontal"
+                [formGroup]="productForm"
+                (ngSubmit)="saverecord()"
+              >
+                <div class="row">
+                  <div class="col-md-4">
                     <div class="form-group">
                       <label class="col-md-4 control-label" for="Palyer Name">
-                        Discount
+                        ID
+                        <span class="require">*</span>
+                      </label>
+                      <div class="col-md-8">
+                        <input
+                          type="text"
+                          class="form-control"
+                          [(ngModel)]="ProductID"
+                          name="PlayerName"
+                          placeholder="ProductID"
+                          formControlName="productID"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="Palyer Name">
+                       Name
                         <span class="require">*</span>
                       </label>
                       <div class="col-md-8">
                           <input
                             type="text"
                             class="form-control"
-                            [(ngModel)]="Discount"
-                            name="Discount"
-                            placeholder="Discount"
+                            [(ngModel)]="ProductName"
+                            name="ProductName"
+                            placeholder="Product Name"
                             [ngClass]="{
-                              'is-invalid': submitted && f.discount.errors
+                              'is-invalid': submitted && f.productName.errors
                             }"
-                            formControlName="discount"
+                            formControlName="productName"
                           />
                       
                         <div
-                          *ngIf="submitted && f.discount.errors"
+                          *ngIf="submitted && f.productName.errors"
                           class="invalid-feedback"
                         >
-                          <div *ngIf="f.discount.errors.required">
-                            discount is Required
+                          <div *ngIf="f.productName.errors.required">
+                            ProductName is Required
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-  
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label class="col-md-4 control-label" for="usr_name">
-                        Unit
-                        <span class="require">*</span>
-                      </label>
-                      <div class="col-md-8">
-                          <select
-                            required
-                            [(ngModel)]="Unit"
-                            formControlName="unit"
-                            class="form-control"
-                            autocomplete="off"
-                          >
-                            <option value="undefined" disabled selected
-                              >Select unit</option
-                            >
-                            <option
-                              *ngFor="let data of unit"
-                              value="{{ data.unitName }}"
-                            >
-                              {{ data.unitName }}</option
-                            >
-                          </select>
-                      
-                      </div>
-                    </div>
-                  </div>
-              
-              </div>
-              <div class="row">
                   <div class="col-md-4">
                       <div class="form-group">
                         <label class="col-md-4 control-label" for="usr_name">
-                          Select Color
+                          Category
+                          <span class="require">*</span>
                         </label>
+    
                         <div class="col-md-8">
                             <ng-multiselect-dropdown
-                              [placeholder]="'Select color'"
-                              formControlName="color"
-                              [data]="ColorData"
-                              [(ngModel)]="Color"
-                              [settings]="dropdownColor"
+                              [placeholder]="'Select category'"
+                              formControlName="category"
+                              [data]="category"
+                              [(ngModel)]="Category"
+                              [settings]="dropdownSettings"
                               (onSelect)="onItemSelect($event)"
                               (onSelectAll)="onSelectAll($event)"
                               [required]="requiredField"
@@ -216,166 +99,417 @@
                               name="countrySelect"
                             >
                             </ng-multiselect-dropdown>
-                        
                         </div>
                       </div>
                     </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label class="col-md-4 control-label" for="usr_name">
-                        Status
-                        <span class="require">*</span>
-                      </label>
-                      <div class="col-md-8">
-                          <select
-                            required
-                            [(ngModel)]="Status"
-                            formControlName="status"
-                            class="form-control"
-                      
-                            autocomplete="off"
-                          >
-                            <option value="undefined" disabled selected
-                              >Select status</option
-                            >
-                            <option
-                              *ngFor="let data of status"
-                              value="{{ data.status }}"
-                            >
-                              {{ data.status }}</option
-                            >
-                          </select>
+                </div>
+                <div class="row">
+                    <!-- <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="col-md-4 control-label" for="usr_name">
+                            Select Color
+                          </label>
+                          <div class="col-md-8">
+                              <ng-multiselect-dropdown
+                                [placeholder]="'Select color'"
+                                formControlName="color"
+                                [data]="ColorData"
+                                [(ngModel)]="Color"
+                                [settings]="dropdownColor"
+                                (onSelect)="onItemSelect($event)"
+                                (onSelectAll)="onSelectAll($event)"
+                                [required]="requiredField"
+                                [ngClass]="setClass()"
+                                name="countrySelect"
+                              >
+                              </ng-multiselect-dropdown>
                           
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  <!-- <div class="col-md-4">
+                    <div class="col-md-4">
                       <div class="form-group">
                         <label class="col-md-4 control-label" for="usr_name">
-                          Select Size
+                          Status
                           <span class="require">*</span>
                         </label>
                         <div class="col-md-8">
-                          <div class="flex-container flex-wrap">
-                            <div class="element">
-                              <div class="flex-container">
-                                <div
-                                  *ngFor="
-                                    let hobby of playerForm.controls.hobbies
-                                      .controls;
-                                    let i = index
-                                  "
-                                  class="flex-container  align-center multi-checkbox"
-                                >
-                                <mat-checkbox class="example-margin" [formControl]="hobby"
-                                (change)="
-                                  getSelectedHobbies(hobby, myhobbies[i].name)
-                                ">{{ myhobbies[i].name }}</mat-checkbox>
+                            <select
+                              required
+                              [(ngModel)]="Status"
+                              formControlName="status"
+                              class="form-control"
+                        
+                              autocomplete="off"
+                            >
+                              <option value="undefined" disabled selected
+                                >Select status</option
+                              >
+                              <option
+                                *ngFor="let data of status"
+                                value="{{ data.status }}"
+                              >
+                                {{ data.status }}</option
+                              >
+                            </select>
+                            
+                        </div>
+                      </div>
+                    </div> -->
+                    <!-- <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="col-md-4 control-label" for="usr_name">
+                            Select Size
+                            <span class="require">*</span>
+                          </label>
+                          <div class="col-md-8">
+                            <div class="flex-container flex-wrap">
+                              <div class="element">
+                                <div class="flex-container">
+                                  <div
+                                    *ngFor="
+                                      let hobby of playerForm.controls.hobbies
+                                        .controls;
+                                      let i = index
+                                    "
+                                    class="flex-container  align-center multi-checkbox"
+                                  >
+                                  <mat-checkbox class="example-margin" [formControl]="hobby"
+                                  (change)="
+                                    getSelectedHobbies(hobby, myhobbies[i].name)
+                                  ">{{ myhobbies[i].name }}</mat-checkbox>
+                                  </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </div> -->
-                    <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="col-md-4 control-label" for="usr_name">
-                            Select Image
-                          </label>
-                          <div class="col-md-8">
-                            <!-- <img *ngFor='let url of urls'  [src]="url" height="200"> <br/> -->
-                            <input   class="form-control" type='file' (change)="onSelectFile($event)" multiple>
+                      </div> -->
+                      <div class="col-md-4">
+                          <div class="form-group">
+                            <label class="col-md-4 control-label" for="usr_name">
+                              Select Image
+                            </label>
+                            <div class="col-md-8">
+                              <!-- <img *ngFor='let url of urls'  [src]="url" height="200"> <br/> -->
+                              <input      [ngClass]="{
+                                'is-invalid': submitted && f.description.errors
+                              }"  formControlName="productImage" class="form-control" type='file' (change)="onSelectFile($event)" multiple>
+                              <div
+                              *ngIf="submitted && f.productImage.errors"
+                              class="invalid-feedback"
+                            >
+                              <div *ngIf="f.productImage.errors.required">
+                               Image is required
+                              </div>
+                            </div>
+                            </div>
                           </div>
                         </div>
-                      </div>
-              </div>
-              <div class="row">
-           
-                <div class="col-md-12">
-                    <div class="form-group">
-                      <label for="email" class=" col-md-1"
-                        >Description
-                        <!-- <span class="require">*</span> -->
-                      </label>
-                      <div class="col-lg-11" style="padding: 0px 0px 0px 52px;" >
-                          <textarea style="margin: 0px 5px 0px -17px;"
-                            formControlName="description"
-                            maxlength="150"
-                            [(ngModel)]="Description"
-                            class="form-control"
-                            placeholder="Enter the description"
-                            rows="3"
-                            [ngClass]="{
-                              'is-invalid': submitted && f.description.errors
-                            }"
-                            autocomplete="off"
-                          ></textarea>
-                      
-                        <div
-                          *ngIf="submitted && f.description.errors"
-                          class="invalid-feedback"
-                        >
-                          <div *ngIf="f.description.errors.required">
-                            Description is required
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- <div class="col-md-4">
+                </div>
+                <div class="row">
+             
+                  <div class="col-md-12">
                       <div class="form-group">
-                        <label for="email" class="control-label col-lg-4"
-                          >Short Description
-                          <span class="require">*</span>
+                        <label for="email" class=" col-md-1"
+                          >Description
+                          <!-- <span class="require">*</span> -->
                         </label>
-                        <div class="col-lg-8">
-                            <textarea
-                              formControlName="shortDescription"
+                        <div class="col-lg-11" style="padding: 0px 0px 0px 52px;" >
+                            <textarea style="margin: 0px 5px 0px -17px;"
+                              formControlName="description"
                               maxlength="150"
-                              [(ngModel)]="ShortDescription"
+                              [(ngModel)]="Description"
                               class="form-control"
-                              placeholder="Enter the shortDescription"
+                              placeholder="Enter the description"
                               rows="3"
                               [ngClass]="{
-                                'is-invalid': submitted && f.shortDescription.errors
+                                'is-invalid': submitted && f.description.errors
                               }"
                               autocomplete="off"
                             ></textarea>
                         
                           <div
-                            *ngIf="submitted && f.shortDescription.errors"
+                            *ngIf="submitted && f.description.errors"
                             class="invalid-feedback"
                           >
-                            <div *ngIf="f.shortDescription.errors.required">
-                              shortDescription is required
+                            <div *ngIf="f.description.errors.required">
+                              Description is required
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div> -->
-              </div>
-              <div class="row">
-               
-              </div>
-              <div class="form-group btnSize">
-                <button type="submit" class="btn btn-success b-0 pull-right">
-                  {{buttontext}}
-                </button>
-                <button
-                  class="btn btn-danger pull-right modButAli"
-                  (click)="backnavlist()"
-                >
-                  <i class="fa fa-arrow-left"></i> Cancel
-                </button>
-              </div>
-            </form>
-          </div>
-          <!-- /tile body -->
-        </section>
-        <!-- /tile -->
+                    </div>
+                    <!-- <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="email" class="control-label col-lg-4"
+                            >Short Description
+                            <span class="require">*</span>
+                          </label>
+                          <div class="col-lg-8">
+                              <textarea
+                                formControlName="shortDescription"
+                                maxlength="150"
+                                [(ngModel)]="ShortDescription"
+                                class="form-control"
+                                placeholder="Enter the shortDescription"
+                                rows="3"
+                                [ngClass]="{
+                                  'is-invalid': submitted && f.shortDescription.errors
+                                }"
+                                autocomplete="off"
+                              ></textarea>
+                          
+                            <div
+                              *ngIf="submitted && f.shortDescription.errors"
+                              class="invalid-feedback"
+                            >
+                              <div *ngIf="f.shortDescription.errors.required">
+                                shortDescription is required
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div> -->
+                </div>
+                <div class="row">
+                 
+                </div>
+                <div class="form-group btnSize">
+                  <button type="submit" class="btn btn-success b-0 pull-right">
+                    {{buttontext}}
+                  </button>
+                  <button
+                    class="btn btn-danger pull-right modButAli"
+                    (click)="backnavlist()"
+                  >
+                    <i class="fa fa-arrow-left"></i> Cancel
+                  </button>
+                </div>
+              </form>
+            </div>
+            <!-- /tile body -->
+          </section>
+          <!-- /tile -->
+        </div>
       </div>
-    </div>
-    <!-- /row -->
+      <!-- /row --></mat-tab>
+      <mat-tab label="Product Attributes"> 
+             <div class="row">
+        <div class="col-md-12">
+          <!-- tile -->
+          <section class="tile tile-simple">
+            <div class="tile-body">
+              <form
+                class="form-horizontal"
+                [formGroup]="productForm"
+                (ngSubmit)="saverecord()"
+              >
+  
+                <div class="row">
+                
+                
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="Palyer Name">
+                        Price
+                        <span class="require">*</span>
+                      </label>
+                      <div class="col-md-8">
+                 
+                          <input
+                            type="text"
+                            class="form-control"
+                            [(ngModel)]="Price"
+                            name="price"
+                            placeholder="price"
+                            [ngClass]="{
+                              'is-invalid': submitted && f.price.errors
+                            }"
+                            formControlName="price"
+                          />
+                      
+                        <div
+                          *ngIf="submitted && f.price.errors"
+                          class="invalid-feedback"
+                        >
+                          <div *ngIf="f.price.errors.required">
+                            price is Required
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="Palyer Name">
+                          Discount
+                          <span class="require">*</span>
+                        </label>
+                        <div class="col-md-8">
+                            <input
+                              type="text"
+                              class="form-control"
+                              [(ngModel)]="Discount"
+                              name="Discount"
+                              placeholder="Discount"
+                              [ngClass]="{
+                                'is-invalid': submitted && f.discount.errors
+                              }"
+                              formControlName="discount"
+                            />
+                        
+                          <div
+                            *ngIf="submitted && f.discount.errors"
+                            class="invalid-feedback"
+                          >
+                            <div *ngIf="f.discount.errors.required">
+                              discount is Required
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+    
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="usr_name">
+                          Unit
+                          <span class="require">*</span>
+                        </label>
+                        <div class="col-md-8">
+                            <select
+                              required
+                              [(ngModel)]="Unit"
+                              formControlName="unit"
+                              class="form-control"
+                              autocomplete="off"
+                            >
+                              <option value="undefined" disabled selected
+                                >Select unit</option
+                              >
+                              <option
+                                *ngFor="let data of unit"
+                                value="{{ data.unitName }}"
+                              >
+                                {{ data.unitName }}</option
+                              >
+                            </select>
+                        
+                        </div>
+                      </div>
+                    </div>
+                
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="col-md-4 control-label" for="usr_name">
+                            Select Color
+                          </label>
+                          <div class="col-md-8">
+                              <ng-multiselect-dropdown
+                                [placeholder]="'Select color'"
+                                formControlName="color"
+                                [data]="ColorData"
+                                [(ngModel)]="Color"
+                                [settings]="dropdownColor"
+                                (onSelect)="onItemSelect($event)"
+                                (onSelectAll)="onSelectAll($event)"
+                                [required]="requiredField"
+                                [ngClass]="setClass()"
+                                name="countrySelect"
+                              >
+                              </ng-multiselect-dropdown>
+                          
+                          </div>
+                        </div>
+                      </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="usr_name">
+                          Status
+                          <span class="require">*</span>
+                        </label>
+                        <div class="col-md-8">
+                            <select
+                              required
+                              [(ngModel)]="Status"
+                              formControlName="status"
+                              class="form-control"
+                        
+                              autocomplete="off"
+                            >
+                              <option value="undefined" disabled selected
+                                >Select status</option
+                              >
+                              <option
+                                *ngFor="let data of status"
+                                value="{{ data.status }}"
+                              >
+                                {{ data.status }}</option
+                              >
+                            </select>
+                            
+                        </div>
+                      </div>
+                    </div>
+                    <!-- <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="col-md-4 control-label" for="usr_name">
+                            Select Size
+                            <span class="require">*</span>
+                          </label>
+                          <div class="col-md-8">
+                            <div class="flex-container flex-wrap">
+                              <div class="element">
+                                <div class="flex-container">
+                                  <div
+                                    *ngFor="
+                                      let hobby of playerForm.controls.hobbies
+                                        .controls;
+                                      let i = index
+                                    "
+                                    class="flex-container  align-center multi-checkbox"
+                                  >
+                                  <mat-checkbox class="example-margin" [formControl]="hobby"
+                                  (change)="
+                                    getSelectedHobbies(hobby, myhobbies[i].name)
+                                  ">{{ myhobbies[i].name }}</mat-checkbox>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div> -->
+
+                </div>
+               
+                <div class="row">
+                 
+                </div>
+                <div class="form-group btnSize">
+                  <button type="submit" class="btn btn-success b-0 pull-right">
+                    {{buttontext}}
+                  </button>
+                  <button
+                    class="btn btn-danger pull-right modButAli"
+                    (click)="backnavlist()"
+                  >
+                    <i class="fa fa-arrow-left"></i> Cancel
+                  </button>
+                </div>
+              </form>
+            </div>
+            <!-- /tile body -->
+          </section>
+          <!-- /tile -->
+        </div>
+      </div>
+      </mat-tab>
+    </mat-tab-group>
+    <!-- row -->
+
   </div>
 </section>

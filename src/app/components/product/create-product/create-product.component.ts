@@ -32,6 +32,7 @@ export class CreateProductComponent implements OnInit {
   Unit:string;
    Status: string;
    productForm: FormGroup;
+   attributeForm; FormGroup;
   submitted = false;
   ProductListData: any = [];
   productData: any = [];
@@ -178,7 +179,7 @@ export class CreateProductComponent implements OnInit {
     this.productForm = this.formBuilder.group({
       productID: ['',],
       productName: ['', Validators.required],
-      description: [''],
+      description: ['', Validators.required],
       shortDescription: ['',],
       category: [''],
       price: ['',],
@@ -186,8 +187,22 @@ export class CreateProductComponent implements OnInit {
       unit: ['',],
       status: ['',],
       color:[''],
+      productImage:['',Validators.required],
       hobbies: this.createHobbies(this.myhobbies)
   });
+  this.attributeForm = this.formBuilder.group({
+    productID: ['',],
+    productName: ['', Validators.required],
+    description: [''],
+    shortDescription: ['',],
+    category: [''],
+    price: ['',],
+    discount: ['',],
+    unit: ['',],
+    status: ['',],
+    color:[''],
+    hobbies: this.createHobbies(this.myhobbies)
+});
   this.productForm.reset();
     this.Editdata = JSON.parse(localStorage.getItem('EditProductdata'));
     this.i = localStorage.getItem('i');
